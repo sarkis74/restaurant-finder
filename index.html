@@ -7,8 +7,41 @@
   <link rel="stylesheet" href="css/reset.css"/>
   <link rel="stylesheet" href="css/style.css"/>
   <title>Restaurant Finder</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+       
+    #map {
+      height: 500px;  
+      width: 100%;  
+     }
+  </style>
 </head>
 <body>
+  <h1>Restaurant Finder</h1>
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Seattle
+  var seattle = {lat: 47.603230, lng: -122.330276};
+  // The map, centered at Seattle
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: seattle});
+  // The marker, positioned at Seattle
+  var marker = new google.maps.Marker({position: seattle, map: map});
+}
+    </script>
+    <!--Load the API from the specified URL
+    * The async attribute allows the browser to render the page while the API loads
+    * The key parameter will contain your own API key 
+    * The callback parameter executes the initMap() function
+    -->
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTKyZxVOsJnDufgChqaYAPyn6Uyjgzs9g&callback=initMap">
+    </script>
   <script src="js/app.js"></script>
 </body>
 </html>
