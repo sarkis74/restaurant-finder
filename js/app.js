@@ -1,23 +1,21 @@
 ('use strict');
 
-var currentImageArrayIndex = 0;
-var restaurantImages = [];
-
 //Constructor function for object properties
-var AllRestaurants = function(restName, foodType, restAddress, restHours, restCodeability, restRatings, description) {
+var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink) {
     this.restName = restName;
-    this.foodType = foodType;
     this.restAddress = restAddress;
     this.restHours = restHours;
+    this.foodType = foodType;
+    this.keywords = keywords;
+    this.phone = phone;
     this.restCodeability = restCodeability;
-    this.restRatings = restRatings;
-    this.description = description;
+    this.restLink = restLink;
     this.restArr = []; //Array for storing new objects
     this.restPastSearches = []; //Array for storing past searches
 }
 
 //Protype for returning restaurant list/info
-AllRestaurants.prototype.renderAllRestaurants = function() {
+CreateRestaurant.prototype.renderAllRestaurants = function() {
 //Conditional for if search data in store
 
 //Loop to see if search name === restName || search food type === foodType || search location === restAddress
@@ -29,49 +27,26 @@ var clearFunction = function() {
 
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Twenty restaurants will inherit object properties and method
-//var AllRestaurants = new();
+var modPizza = new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', 'pizza, salad, italian, breadsticks, beer, milkshake', '(206)428-6315', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/');
 
-var restaurantName = document.createElement('h2');
-restaurantName.textContent = 'Restaurant Name';
-document.body.appendChild(restaurantName);
+var blueWater = new CreateRestaurant('Blue Water Taco Grill', '515 Queen Anne Ave N, Seattle, WA 98119', 'Sunday - Saturday 11am - 9pm', 'sit-down, Mexican', 'Mexican, burrito, tacos, enchiladas, beer, liquor', '(206)352-2407', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'http://www.bluewatertacogrill.com/');
 
-var restaurantCuisine = document.createElement('p');
-restaurantCuisine.textContent = 'Restaurant Cuisine';
-document.body.appendChild(restaurantCuisine);
+var caffeLadro = new CreateRestaurant('Caffe Ladro', '600 Queen Anne Ave N, Seattle, WA 98109', 'Sunday-Saturday 5:30am - 8pm', 'Cafe, sit-down, fast', 'coffee, pastries, tea, cookies, muffins', 'none', ['- Wifi yes', '-Price $', '- Distance .8 miles'], 'https://caffeladro.com/');
 
-var restaurantDescription = document.createElement('p');
-restaurantDescription.textContent = 'Restaurant Description';
-document.body.appendChild(restaurantDescription);
+var uptownEspresso = new CreateRestaurant(' Uptown Espresso Belltown','2504 4th Ave, Seattle, WA 98121', 'Sunday 6am - 10pm, Monday-Thursday 5am - 10pm, Friday 5pm - 11pm, Saturday 6am - 11pm', 'Cafe, sit-down, fast', 'coffee, pastries, tea, cookies, muffins', '(206)441-1084', ['- Wifi yes', '-Price $', '- Distance .4 miles'], 'https://velvetfoam.com/');
 
-var restaurantType = document.createElement('p');
-restaurantType.textContent = 'Restaurant Type';
-document.body.appendChild(restaurantType);
-
-var restaurantAddress = document.createElement('p');
-restaurantAddress.textContent = 'Restaurant Address';
-document.body.appendChild(restaurantAddress);
-
-var restaurantDistance = document.createElement('p');
-restaurantDistance.textContent = 'Restaurant Distance';
-document.body.appendChild(restaurantDistance);
-
-var restaurantHours = document.createElement('p');
-restaurantHours.textContent = 'Restaurant Hours';
-document.body.appendChild(restaurantHours);
-
-var restaurantPhone = document.createElement('p');
-restaurantPhone.textContent = 'Restaurant Phone';
-document.body.appendChild(restaurantPhone);
-
-var restaurantWebsite = document.createElement('p');
-restaurantWebsite.textContent = 'Restaurant Website';
-document.body.appendChild(restaurantWebsite);
-
-var restaurantCodability = document.createElement('p');
-restaurantCodability.textContent = 'Restaurant Codability';
-document.body.appendChild(restaurantCodability);
-
-var restaurantMenu = document.createElement('p');
-restaurantMenu.textContent = 'Restaurant Menu';
-document.body.appendChild(restaurantMenu);
