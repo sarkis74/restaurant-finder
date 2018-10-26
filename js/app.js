@@ -39,6 +39,7 @@ var clearFunction = function() {
 
 
 
+
 //Twenty restaurants will inherit object properties and method
 //var AllRestaurants = new();
 
