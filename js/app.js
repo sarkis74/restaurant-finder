@@ -1,5 +1,8 @@
 ('use strict');
 
+var currentImageArrayIndex = 0;
+var restaurantImages = [];
+
 var restaurantName = document.createElement('h2');
 restaurantName.textContent = 'Restaurant Name';
 document.body.appendChild(restaurantName);
@@ -11,6 +14,10 @@ document.body.appendChild(restaurantCuisine);
 var restaurantDescription = document.createElement('p');
 restaurantDescription.textContent = 'Restaurant Description';
 document.body.appendChild(restaurantDescription);
+
+var restaurantType = document.createElement('p');
+restaurantType.textContent = 'Restaurant Type';
+document.body.appendChild(restaurantType);
 
 var restaurantAddress = document.createElement('p');
 restaurantAddress.textContent = 'Restaurant Address';
