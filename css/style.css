@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -23,32 +24,13 @@
     border-color: #4d90fe;
   }
 
-   /* form.example input[type=text] {
-    padding: 10px;
-    font-size: 17px;
-    border: 1px solid grey;
-    float: left;
-    width: 80%;
-    background: #f1f1f1;
+   
+h1 {
+  font-size: 18pt;
+  font-weight: bold;
 }
 
-form.example button {
-    float: left;
-    width: 20%;
-    padding: 10px;
-    background: #2196F3;
-    color: white;
-    font-size: 17px;
-    border: 1px solid grey;
-    border-left: none;
-    cursor: pointer;
+h2 {
+  font-size: 14pt;
+  font-weight: bold;
 }
-
-form.example button:hover {
-    background: #0b7dda;
-}
-
-form.example::after {
-    content: "";
-    clear: both;
-    display: table; */
