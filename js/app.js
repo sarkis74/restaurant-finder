@@ -3,7 +3,6 @@
 var currentImageArrayIndex = 0;
 var restaurantImages = [];
 
-=======
 //Constructor function for object properties
 var AllRestaurants = function(restName, foodType, restAddress, restHours, restCodeability, restRatings, description) {
     this.restName = restName;
