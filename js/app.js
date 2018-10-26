@@ -1,3 +1,4 @@
+
 ('use strict');
 
 //Constructor function for object properties
@@ -26,20 +27,6 @@ CreateRestaurant.prototype.renderAllRestaurants = function() {
 var clearFunction = function() {
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1
