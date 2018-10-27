@@ -17,7 +17,7 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
     this.keywords = keywords;
     this.phone = phone;
     this.restCodeability = restCodeability;
-    this.src = src; //For icon images??
+    this.src = src; //For images
     this.restLink = restLink;
 
     restArr.push(this); //All new objects will go into array so we can loop through info    
@@ -41,6 +41,10 @@ for(var i = 0; i < restArr; i++) {
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
+    for(var i in restArr) {
+        localStorage.removeItem('pastHistory');
+        alert('Your history is cleared.')
+    }
 
 }
 
