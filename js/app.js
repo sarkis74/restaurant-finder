@@ -1,12 +1,16 @@
 ('use strict');
+for(var i = 0; i < restArr; i++) {
+  console.log(restArr[i]);
+}
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
-var searchWord = document.getElementById('restaurant-filter');
+var restKeywords = [];
 
-var restaurantInfoDisplayAside = document.getElementById('restuarant info'); //Creates html element on which info will be displayed
-var restaurantUnList = document.getElementById('restuarant list');
-var restaurantListItem = document.getElementById('restuarant list item');
+var searchWord = document.getElementById('restaurant-filter');
+var restaurantInfoDisplayAside = document.getElementById('restaurant-info'); //Creates html element on which info will be displayed
+var restaurantUnList = document.getElementById('restaurant-list');
+//var restaurantListItem = document.getElementById('restaurant-list-item');
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink, src) {
@@ -23,30 +27,57 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 };
 
 //Protype for restaurant info/list and images
-CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
+// CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
 
-};
+// };
 
-//
 var restaurantSearchHandler = function(event) {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-
-  for(var i = 0; i < restArr; i++) {
+  for(var i = 0; i < restArr.length; i++) {
+    //restKeywords.push(restArr[i].keywords[i])
     //Checks restArr to see if target matches and array item
-    if(searchWord === restArr[i].restName || searchWord === restArr[i].restAddress || searchWord === restArr[i].foodType || searchWord === restArr[i].keywords[i]) {
-        restaurantListItem.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
-        restaurantUnList.appendChild(restaurantListItem);
+    if(restArr[i].restName === event.target.value) {
 
-        localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
-        }
+      var nameLiEl = document.createElement('li');
+      nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
+      restaurantUnList.appendChild(nameLiEl);
+
+      var locationLiEl = document.createElement('li');
+      locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+      restaurantUnList.appendChild(locationLiEl);
+
+      var hoursLiEl = document.createElement('li');
+      hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+      restaurantUnList.appendChild(hoursLiEl);
+
+      var typeLiEl = document.createElement('li');
+      typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+      restaurantUnList.appendChild(typeLiEl);
+
+      var phoneLiEl = document.createElement('li');
+      phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].phone;
+      restaurantUnList.appendChild(phoneLiEl);
+
+      var websiteLiEL = document.createElement('li');
+      websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+      restaurantUnList.appendChild(websiteLiEL);
+      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
     }
-    restaurantInfoDisplayAside.appendChild(restaurantUnList);
-}
+    var restaurantSelection = document.getElementById('restaurant-filter');
+    restaurantSelection.addEventListener('change', restaurantSearchHandler);
+    localStorage.setItem('selectedOption', JSON.stringify(restaurantSelection.options[restaurantSelection.selectedIndex].text));
+  }
+  restaurantInfoDisplayAside.appendChild(restaurantUnList);
+};
 
-  //Function for clearing localStorage will be linked to button and have removeItem() and alert
-  var clearFunction = function() {
 
-  };
+//Clear option for user
+document.getElementById('restaurant-filter').addEventListener('change', restaurantSearchHandler);
+
+//Function for clearing localStorage will be linked to button and have removeItem() and alert
+var clearFunction = function() {
+
+};
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
@@ -108,11 +139,8 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
-console.log(searchWord);
-searchWord.addEventListener('change',restaurantSearchHandler);
-//   if (e.keyCode === 13) {
-//     restaurantSearchHandler();
-//   }
+
+
 
 
 //console.log(input);
@@ -159,4 +187,3 @@ searchWord.addEventListener('change',restaurantSearchHandler);
 // var restaurantMenu = document.createElement('p');
 // restaurantMenu.textContent = 'Restaurant Menu';
 // document.body.appendChild(restaurantMenu);
- 
