@@ -1,12 +1,15 @@
 ('use strict');
+for(var i = 0; i < restArr; i++) {
+    console.log(restArr[i]);
+}
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
 var searchWord = document.getElementById('restaurant-filter');
 
-var restaurantInfoDisplayAside = document.getElementById('restuarant info'); //Creates html element on which info will be displayed
-var restaurantUnList = document.getElementById('restuarant list');
-var restaurantListItem = document.getElementById('restuarant list item');
+var restaurantInfoDisplayAside = document.getElementById('restaurant-info'); //Creates html element on which info will be displayed
+var restaurantUnList = document.getElementById('restaurant-list');
+v//ar restaurantListItem = document.getElementById('restaurant-list-item');
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink, src) {
@@ -20,28 +23,37 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
   this.restLink = restLink;
   this.src = src; //For images
   restArr.push(this); //All new objects will go into array so we can loop through info
-};
+}
 
 //Protype for restaurant info/list and images
-CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
+// CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
 
-};
+// };
 
-//
-var restaurantSearchHandler = function(event) {
+var restaurantSearchHandler = function() {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 
   for(var i = 0; i < restArr; i++) {
     //Checks restArr to see if target matches and array item
-    if(searchWord === restArr[i].restName || searchWord === restArr[i].restAddress || searchWord === restArr[i].foodType || searchWord === restArr[i].keywords[i]) {
-        restaurantListItem.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
-        restaurantUnList.appendChild(restaurantListItem);
-
+    if(event.target.value === restArr[i].restName || event.target.value === restArr[i].restAddress || event.target.value === restArr[i].foodType || event.target.value === restArr[i].keywords[i]) {
+        var restaurantName = document.createElement('h2');
+        restaurantName.textContent = "Sarkis";
+        restaurantListItem.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.foodType + '\n' + this.restLink;
+        console.log(restaurantListItem.textContent);
+        
+        restaurantUnList.appendChild(restaurantName);
         localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+        console.log(restArr[i])
+        console.log(restArr);
         }
     }
     restaurantInfoDisplayAside.appendChild(restaurantUnList);
 }
+
+// console.log(searchWord);
+// searchWord.addEventListener('change', restaurantSearchHandler());
+
+document.getElementById("restaurant-filter").addEventListener("click",restaurantSearchHandler);
 
   //Function for clearing localStorage will be linked to button and have removeItem() and alert
   var clearFunction = function() {
@@ -108,11 +120,8 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
-console.log(searchWord);
-searchWord.addEventListener('change',restaurantSearchHandler);
-//   if (e.keyCode === 13) {
-//     restaurantSearchHandler();
-//   }
+
+
 
 
 //console.log(input);
