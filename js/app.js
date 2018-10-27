@@ -13,13 +13,13 @@ var restaurantUnList = document.getElementById('restaurant-list');
 //var restaurantListItem = document.getElementById('restaurant-list-item');
 
 //Constructor function for object properties
-var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink, src) {
+var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, restPhone, restCodeability, restLink, src) {
   this.restName = restName;
   this.restAddress = restAddress;
   this.restHours = restHours;
   this.foodType = foodType;
   this.keywords = keywords;
-  this.phone = phone;
+  this.restPhone = restPhone;
   this.restCodeability = restCodeability;
   this.restLink = restLink;
   this.src = src; //For images
@@ -37,23 +37,23 @@ var restaurantSearchHandler = function(event) {
     //restKeywords.push(restArr[i].keywords[i])
     //Checks restArr to see if target matches and array item
      if(restArr[i].restName === event.target.value) {
-        var restaurantListItem1 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Name: ' + restArr[i].restName;
+        var restaurantListItem = document.createElement('li');
+        document.write(restArr[i].restName);
         restaurantUnList.appendChild(restaurantListItem1);
         var restaurantListItem2 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+        restaurantListItem2.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
         restaurantUnList.appendChild(restaurantListItem2);
         var restaurantListItem3 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+        restaurantListItem3.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
         restaurantUnList.appendChild(restaurantListItem3);
         var restaurantListItem4 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+        restaurantListItem4.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
         restaurantUnList.appendChild(restaurantListItem4);
         var restaurantListItem5 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
+        restaurantListItem5.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
         restaurantUnList.appendChild(restaurantListItem5);
         var restaurantListItem6 = document.createElement('li');
-        restaurantListItem.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+        restaurantListItem6.textContent = 'Restaurant Website: ' + restArr[i].restLink;
         restaurantUnList.appendChild(restaurantListItem6);
         localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
         }
@@ -134,47 +134,3 @@ new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, 
 
 
 
-//console.log(input);
-// var restaurantName = document.createElement('h2');
-// restaurantName.textContent = 'Restaurant Name';
-// document.body.appendChild(restaurantName);
-
-// var restaurantCuisine = document.createElement('p');
-// restaurantCuisine.textContent = 'Restaurant Cuisine';
-// document.body.appendChild(restaurantCuisine);
-
-// var restaurantDescription = document.createElement('p');
-// restaurantDescription.textContent = 'Restaurant Description';
-// document.body.appendChild(restaurantDescription);
-
-// var restaurantType = document.createElement('p');
-// restaurantType.textContent = 'Restaurant Type';
-// document.body.appendChild(restaurantType);
-
-// var restaurantAddress = document.createElement('p');
-// restaurantAddress.textContent = 'Restaurant Address';
-// document.body.appendChild(restaurantAddress);
-
-// var restaurantDistance = document.createElement('p');
-// restaurantDistance.textContent = 'Restaurant Distance';
-// document.body.appendChild(restaurantDistance);
-
-// var restaurantHours = document.createElement('p');
-// restaurantHours.textContent = 'Restaurant Hours';
-// document.body.appendChild(restaurantHours);
-
-// var restaurantPhone = document.createElement('p');
-// restaurantPhone.textContent = 'Restaurant Phone';
-// document.body.appendChild(restaurantPhone);
-
-// var restaurantWebsite = document.createElement('p');
-// restaurantWebsite.textContent = 'Restaurant Website';
-// document.body.appendChild(restaurantWebsite);
-
-// var restaurantCodability = document.createElement('p');
-// restaurantCodability.textContent = 'Restaurant Codability';
-// document.body.appendChild(restaurantCodability);
-
-// var restaurantMenu = document.createElement('p');
-// restaurantMenu.textContent = 'Restaurant Menu';
-// document.body.appendChild(restaurantMenu);
