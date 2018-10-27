@@ -2,11 +2,12 @@
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
-var keywordArr  = [];
 
+var mapIcons = document.getElementById('map'); //Grab map element
+var restaurantInfoDisplayAside = document.createElement('aside'); //Creates html element on which info will be displayed
 
 //Constructor function for object properties
-var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink) {
+var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, src, restLink) {
   this.restName = restName;
   this.restAddress = restAddress;
   this.restHours = restHours;
@@ -15,34 +16,31 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
   this.phone = phone;
   this.restCodeability = restCodeability;
   this.restLink = restLink;
-  this.restImage = restImage;
-  //   this.restArr = []; //Array for storing new objects
-  //   this.restPastSearches = []; //Array for storing past searches
-  restArr.push(this);
-  keywordArr.push(this.restName, this.foodType, this.keywords);
+  this.src = src; //For icon images??
+  restArr.push(this); //All new objects will go into array so we can loop through info
 };
 
-
-//Protype for returning restaurant list/info
-CreateRestaurant.prototype.renderAllRestaurants = function(event) {
-  event.preventDefault();
-  event.stopPropagation();
- var searchWord = event.target['pac-input'].value;
- for(var i = 0; i <restArr.length; i++){
-     if(searchWord.toLowerCase() === keywordArr[i])
- }
-
-
-  //Conditional for if search data in store
-
-  //Loop to see if search name === restName || search food type === foodType || search location === restAddress
+//Protype for restaurant info/list and images
+CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
 
 };
 
-//Function for clearing localStorage
-var clearFunction = function() {
+//
+var restaurantSearchHandler = function(event) {
+//Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+var searchWord = event.target['pac-input'].value;
+  for(var i = 0; i < restArr; i++) {
+    //Checks restArr to see if target matches and array item
+    if(searchWord === restArr[i].restName || searchWord === restArr[i].restAddress || searchWord === restArr[i].foodType || searchWord === restArr[i].keywords[i]) {
+      restaurantInfoDisplayAside.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
+      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+    }
+  }
 
-};
+  //Function for clearing localStorage will be linked to button and have removeItem() and alert
+  var clearFunction = function() {
+
+  };
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
@@ -107,6 +105,51 @@ new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, 
 
 input.addEventListener('keyup',function(e){
   if (e.keyCode === 13) {
-    renderAllRestaurants();
+    restaurantSearchHandler();
   }
 });
+
+var restaurantName = document.createElement('h2');
+restaurantName.textContent = 'Restaurant Name';
+document.body.appendChild(restaurantName);
+
+var restaurantCuisine = document.createElement('p');
+restaurantCuisine.textContent = 'Restaurant Cuisine';
+document.body.appendChild(restaurantCuisine);
+
+var restaurantDescription = document.createElement('p');
+restaurantDescription.textContent = 'Restaurant Description';
+document.body.appendChild(restaurantDescription);
+
+var restaurantType = document.createElement('p');
+restaurantType.textContent = 'Restaurant Type';
+document.body.appendChild(restaurantType);
+
+var restaurantAddress = document.createElement('p');
+restaurantAddress.textContent = 'Restaurant Address';
+document.body.appendChild(restaurantAddress);
+
+var restaurantDistance = document.createElement('p');
+restaurantDistance.textContent = 'Restaurant Distance';
+document.body.appendChild(restaurantDistance);
+
+var restaurantHours = document.createElement('p');
+restaurantHours.textContent = 'Restaurant Hours';
+document.body.appendChild(restaurantHours);
+
+var restaurantPhone = document.createElement('p');
+restaurantPhone.textContent = 'Restaurant Phone';
+document.body.appendChild(restaurantPhone);
+
+var restaurantWebsite = document.createElement('p');
+restaurantWebsite.textContent = 'Restaurant Website';
+document.body.appendChild(restaurantWebsite);
+
+var restaurantCodability = document.createElement('p');
+restaurantCodability.textContent = 'Restaurant Codability';
+document.body.appendChild(restaurantCodability);
+
+var restaurantMenu = document.createElement('p');
+restaurantMenu.textContent = 'Restaurant Menu';
+document.body.appendChild(restaurantMenu);
+>>>>>>> fe2b8f1238be7f9adcbd7bf308d863c788c38d91
