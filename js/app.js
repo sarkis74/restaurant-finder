@@ -1,6 +1,10 @@
 ('use strict');
 for(var i = 0; i < restArr; i++) {
+<<<<<<< HEAD
+  console.log(restArr[i]);
+=======
     console.log(restArr[i]);
+>>>>>>> acdb37a8873052d9875de4019630bd4a73895b85
 }
 
 var restArr = []; //Array for storing new objects
@@ -36,39 +40,48 @@ var restaurantSearchHandler = function(event) {
   for(var i = 0; i < restArr.length; i++) {
     //restKeywords.push(restArr[i].keywords[i])
     //Checks restArr to see if target matches and array item
-     if(restArr[i].restName === event.target.value) {
-        var restaurantListItem = document.createElement('li');
-        document.write(restArr[i].restName);
-        restaurantUnList.appendChild(restaurantListItem1);
-        var restaurantListItem2 = document.createElement('li');
-        restaurantListItem2.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
-        restaurantUnList.appendChild(restaurantListItem2);
-        var restaurantListItem3 = document.createElement('li');
-        restaurantListItem3.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
-        restaurantUnList.appendChild(restaurantListItem3);
-        var restaurantListItem4 = document.createElement('li');
-        restaurantListItem4.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
-        restaurantUnList.appendChild(restaurantListItem4);
-        var restaurantListItem5 = document.createElement('li');
-        restaurantListItem5.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
-        restaurantUnList.appendChild(restaurantListItem5);
-        var restaurantListItem6 = document.createElement('li');
-        restaurantListItem6.textContent = 'Restaurant Website: ' + restArr[i].restLink;
-        restaurantUnList.appendChild(restaurantListItem6);
-        localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
-        }
+    if(restArr[i].restName === event.target.value) {
+
+      var nameLiEl = document.createElement('li');
+      nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
+      restaurantUnList.appendChild(nameLiEl);
+
+      var locationLiEl = document.createElement('li');
+      locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+      restaurantUnList.appendChild(locationLiEl);
+
+      var hoursLiEl = document.createElement('li');
+      hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+      restaurantUnList.appendChild(hoursLiEl);
+
+      var typeLiEl = document.createElement('li');
+      typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+      restaurantUnList.appendChild(typeLiEl);
+
+      var phoneLiEl = document.createElement('li');
+      phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].phone;
+      restaurantUnList.appendChild(phoneLiEl);
+
+      var websiteLiEL = document.createElement('li');
+      websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+      restaurantUnList.appendChild(websiteLiEL);
+      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
     }
-    restaurantInfoDisplayAside.appendChild(restaurantUnList);
-}
+    var restaurantSelection = document.getElementById('restaurant-filter');
+    restaurantSelection.addEventListener('change', restaurantSearchHandler);
+    localStorage.setItem('selectedOption', JSON.stringify(restaurantSelection.options[restaurantSelection.selectedIndex].text));
+  }
+  restaurantInfoDisplayAside.appendChild(restaurantUnList);
+};
 
 
 //Clear option for user
-document.getElementById("restaurant-filter").addEventListener("change", restaurantSearchHandler);
+document.getElementById('restaurant-filter').addEventListener('change', restaurantSearchHandler);
 
-  //Function for clearing localStorage will be linked to button and have removeItem() and alert
-  var clearFunction = function() {
+//Function for clearing localStorage will be linked to button and have removeItem() and alert
+var clearFunction = function() {
 
-  };
+};
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
