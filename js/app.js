@@ -4,10 +4,12 @@
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
 var info; //For block of restaurant info
-var restaurantInfoDisplayAside = document.createElement('aside'); //Or get element by Id
+
+var mapIcons = document.getElementById('map'); //Grab map element
+var restaurantInfoDisplayAside = document.createElement('aside'); //Creates html element on which info will be displayed
 
 //Constructor function for object properties
-var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink) {
+var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, src, restLink) {
     this.restName = restName;
     this.restAddress = restAddress;
     this.restHours = restHours;
@@ -15,21 +17,26 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
     this.keywords = keywords;
     this.phone = phone;
     this.restCodeability = restCodeability;
+    this.src = src; //For icon images??
     this.restLink = restLink;
 
     restArr.push(this); //All new objects will go into array so we can loop through info    
 }
 
-//Protype for returning restaurant list/info
-CreateRestaurant.prototype.renderAllRestaurants = function() {
-
+//Protype for restaurant info/list and images
+CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
+    
 }
 
 //
 var restaurantSearchHandler = function(event) {
-//Conditional for if search data in store
-
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+for(var i = 0; i < restArr; i++) {
+    //Checks restArr to see if target matches and array item
+    if(event.target.id === restArr[i].restName || event.target.id === restArr[i].restAddress || event.target.id === restArr[i].foodType || event.target.id === restArr[i].keywords[i]) {
+        restaurantInfoDisplayAside.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
+        localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+    }
 }
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
