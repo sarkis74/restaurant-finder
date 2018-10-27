@@ -28,15 +28,14 @@
     <section id="user-form-container" class="tab-content animated flipInX" style="display: block;">
       <h2>RESTAURANT FINDER</h2>
       <section id="place" style="display: none;">
-        <img src="/img/ajax-soccer-spinner.gif">
         <p><strong>Restaurants information</strong></p>
       </section>
       <form class="form-inline" id="user-form" style="display: block;">
         <div class="form-group" id="user-location-container">
           <input type="text" class="form-control" id="user-location" placeholder="Enter your location" autocomplete="off">
         </div>
-        <div class="form-group" id="activity-picker-container">
-          <select id="sport-filter" class="form-control">
+        <div class="form-group" id="restaurant-code">
+          <select id="restaurant-filter" class="form-control">
             <option>-- Select your Restaurant --</option>
           
     <option value="MOD Pizza
@@ -95,16 +94,16 @@
     <option value="Green Leaf Vietnamese Restaurant">Green Leaf Vietnamese Restaurant</option>
 
     <option value="Eastern Cafe
-">Eastern Cafe
-</option>
+    ">Eastern Cafe
+    </option>
 
-<option value="Tilikum Place Cafe
-">Tilikum Place Cafe
-</option>
+   <option value="Tilikum Place Cafe
+   ">Tilikum Place Cafe
+   </option>
 
-<option value="Sugar Bakery & Coffeehouse
-">Sugar Bakery & Coffeehouse
-</option>
+   <option value="Sugar Bakery & Coffeehouse
+   ">Sugar Bakery & Coffeehouse
+   </option>
 
 
   </select>
@@ -119,7 +118,7 @@
   function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 47.603230,  lng: -122.330276},
-          zoom: 15,
+          zoom: 8,
           mapTypeId: 'roadmap'
         });
  // Create the search box and link it to the UI element.
