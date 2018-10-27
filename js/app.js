@@ -5,11 +5,12 @@ for(var i = 0; i < restArr; i++) {
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
-var searchWord = document.getElementById('restaurant-filter');
+var restKeywords = [];
 
+var searchWord = document.getElementById('restaurant-filter');
 var restaurantInfoDisplayAside = document.getElementById('restaurant-info'); //Creates html element on which info will be displayed
 var restaurantUnList = document.getElementById('restaurant-list');
-v//ar restaurantListItem = document.getElementById('restaurant-list-item');
+//var restaurantListItem = document.getElementById('restaurant-list-item');
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink, src) {
@@ -30,30 +31,39 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 
 // };
 
-var restaurantSearchHandler = function() {
+var restaurantSearchHandler = function(event) {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-console.log(restArr[0].restName);
-  for(var i = 0; i < restArr; i++) {
+  for(var i = 0; i < restArr.length; i++) {
+    //restKeywords.push(restArr[i].keywords[i])
     //Checks restArr to see if target matches and array item
-    if(event.target.value === restArr[i].restName || event.target.value === restArr[i].restAddress || event.target.value === restArr[i].foodType || event.target.value === restArr[i].keywords[i]) {
-        var restaurantName = document.createElement('h2');
-        restaurantName.textContent = "Sarkis";
-        restaurantListItem.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.foodType + '\n' + this.restLink;
-        console.log(restaurantListItem.textContent);
-        
-        restaurantUnList.appendChild(restaurantName);
+     if(restArr[i].restName === event.target.value) {
+        var restaurantListItem1 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Name: ' + restArr[i].restName;
+        restaurantUnList.appendChild(restaurantListItem1);
+        var restaurantListItem2 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+        restaurantUnList.appendChild(restaurantListItem2);
+        var restaurantListItem3 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+        restaurantUnList.appendChild(restaurantListItem3);
+        var restaurantListItem4 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+        restaurantUnList.appendChild(restaurantListItem4);
+        var restaurantListItem5 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
+        restaurantUnList.appendChild(restaurantListItem5);
+        var restaurantListItem6 = document.createElement('li');
+        restaurantListItem.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+        restaurantUnList.appendChild(restaurantListItem6);
         localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
-        console.log(restArr[i])
-        console.log(restArr);
         }
     }
     restaurantInfoDisplayAside.appendChild(restaurantUnList);
 }
 
-// console.log(searchWord);
-// searchWord.addEventListener('change', restaurantSearchHandler());
 
-document.getElementById("restaurant-filter").addEventListener("click",restaurantSearchHandler);
+//Clear option for user
+document.getElementById("restaurant-filter").addEventListener("change", restaurantSearchHandler);
 
   //Function for clearing localStorage will be linked to button and have removeItem() and alert
   var clearFunction = function() {
@@ -120,6 +130,7 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
+
 
 
 
