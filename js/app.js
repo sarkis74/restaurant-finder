@@ -2,6 +2,7 @@
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
+var searchWord = document.getElementById('restaurant-filter');
 
 var restaurantInfoDisplayAside = document.getElementById('restuarant info'); //Creates html element on which info will be displayed
 var restaurantUnList = document.getElementById('restuarant list');
@@ -29,7 +30,6 @@ CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own ico
 //
 var restaurantSearchHandler = function(event) {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-var searchWord = document.getElementById()
 
   for(var i = 0; i < restArr; i++) {
     //Checks restArr to see if target matches and array item
@@ -108,16 +108,14 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
-
-// input.addEventListener('keyup',function(e){
-//   console.log(working);
+console.log(searchWord);
+searchWord.addEventListener('change',restaurantSearchHandler);
 //   if (e.keyCode === 13) {
 //     restaurantSearchHandler();
 //   }
-// });
-input.addEventListener('change', restaurantSearchHandler);
 
 
+//console.log(input);
 // var restaurantName = document.createElement('h2');
 // restaurantName.textContent = 'Restaurant Name';
 // document.body.appendChild(restaurantName);
