@@ -168,4 +168,3 @@ new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, 
 // var restaurantMenu = document.createElement('p');
 // restaurantMenu.textContent = 'Restaurant Menu';
 // document.body.appendChild(restaurantMenu);
- 
