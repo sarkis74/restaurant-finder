@@ -1,32 +1,47 @@
-
 ('use strict');
+
+var restArr = []; //Array for storing new objects
+var restPastSearches = []; //Array for storing past searches
+var keywordArr  = [];
+
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink) {
-    this.restName = restName;
-    this.restAddress = restAddress;
-    this.restHours = restHours;
-    this.foodType = foodType;
-    this.keywords = keywords;
-    this.phone = phone;
-    this.restCodeability = restCodeability;
-    this.restLink = restLink;
-    this.restArr = []; //Array for storing new objects
-    this.restPastSearches = []; //Array for storing past searches
-}
+  this.restName = restName;
+  this.restAddress = restAddress;
+  this.restHours = restHours;
+  this.foodType = foodType;
+  this.keywords = keywords;
+  this.phone = phone;
+  this.restCodeability = restCodeability;
+  this.restLink = restLink;
+  //   this.restArr = []; //Array for storing new objects
+  //   this.restPastSearches = []; //Array for storing past searches
+  restArr.push(this);
+  keywordArr.push(this.restName, this.foodType, this.keywords);
+};
+
 
 //Protype for returning restaurant list/info
-CreateRestaurant.prototype.renderAllRestaurants = function() {
-//Conditional for if search data in store
+CreateRestaurant.prototype.renderAllRestaurants = function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+ var searchWord = event.target['pac-input'].value;
+ for(var i = 0; i <restArr.length; i++){
+     if(searchWord.toLowerCase() === keywordArr[i])
+ }
 
-//Loop to see if search name === restName || search food type === foodType || search location === restAddress
-    
-}
+
+  //Conditional for if search data in store
+
+  //Loop to see if search name === restName || search food type === foodType || search location === restAddress
+
+};
 
 //Function for clearing localStorage
 var clearFunction = function() {
 
-}
+};
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
@@ -89,3 +104,8 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODEABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com');
 
+input.addEventListener('keyup',function(e){
+  if (e.keyCode === 13) {
+    renderAllRestaurants();
+  }
+});
