@@ -2,6 +2,8 @@
 
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
+var info; //For block of restaurant info
+var restaurantInfoDisplayAside = document.createElement('aside'); //Or get element by Id
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, restLink) {
@@ -19,10 +21,14 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 
 //Protype for returning restaurant list/info
 CreateRestaurant.prototype.renderAllRestaurants = function() {
+
+}
+
+//
+var restaurantSearchHandler = function(event) {
 //Conditional for if search data in store
 
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-    
 }
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
@@ -46,7 +52,7 @@ var clearFunction = function() {
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
-new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/');
+new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 \n 305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/');
 
 //Restaurant 2//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
 new CreateRestaurant('Blue Water Taco Grill', '515 Queen Anne Ave N, Seattle, WA 98119', 'Sunday - Saturday 11am - 9pm', 'sit-down, Mexican', ['Mexican','burrito', 'tacos', 'enchiladas', 'beer', 'liquor'], '(206)352-2407', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'http://www.bluewatertacogrill.com/');
