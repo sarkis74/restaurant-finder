@@ -30,7 +30,7 @@
       <section id="place" style="display: none;">
         <p><strong>Restaurants information</strong></p>
       </section>
-      <form class="form-inline" id="user-form" style="display: block;">
+      <form id=class="form-inline" id="user-form" style="display: block;">
         <div class="form-group" id="user-location-container">
           <input type="text" class="form-control" id="user-location" placeholder="Enter your location" autocomplete="off">
         </div>
@@ -123,6 +123,7 @@
         });
  // Create the search box and link it to the UI element.
  var input = document.getElementById('pac-input');
+ 
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
         // Bias the SearchBox results towards current map's viewport.
@@ -156,6 +157,7 @@
               anchor: new google.maps.Point(17, 34),
               scaledSize: new google.maps.Size(25, 25)
             };
+
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -174,6 +176,7 @@
         });
       }
 </script>
+<ul id=""></ul>
 
     
     <!--Load the API from the specified URL
@@ -194,4 +197,5 @@
   </div>
   <script src="js/app.js"></script>
 </body>
+
 </html>
