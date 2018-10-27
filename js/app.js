@@ -3,8 +3,9 @@
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
 
-var mapIcons = document.getElementById('map'); //Grab map element
-var restaurantInfoDisplayAside = document.createElement('aside'); //Creates html element on which info will be displayed
+var restaurantInfoDisplayAside = document.getElementById('restuarant info'); //Creates html element on which info will be displayed
+var restaurantUnList = document.getElementById('restuarant list');
+var restaurantListItem = document.getElementById('restuarant list item');
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, src, restLink) {
@@ -32,10 +33,14 @@ var searchWord = event.target['pac-input'].value;
   for(var i = 0; i < restArr; i++) {
     //Checks restArr to see if target matches and array item
     if(searchWord === restArr[i].restName || searchWord === restArr[i].restAddress || searchWord === restArr[i].foodType || searchWord === restArr[i].keywords[i]) {
-      restaurantInfoDisplayAside.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
-      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+        restaurantListItem.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
+        restaurantUnList.appendChild(restaurantListItem);
+
+        localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+        }
     }
-  }
+    restaurantInfoDisplayAside.appendChild(restaurantUnList);
+}
 
   //Function for clearing localStorage will be linked to button and have removeItem() and alert
   var clearFunction = function() {
