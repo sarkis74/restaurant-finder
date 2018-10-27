@@ -18,12 +18,96 @@
 
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div id="map"></div>
+    <section id="user-form-container" class="tab-content animated flipInX" style="display: block;">
+      <h2>RESTAURANT FINDER</h2>
+      <section id="place" style="display: none;">
+        <img src="/img/ajax-soccer-spinner.gif">
+        <p><strong>Restaurants information</strong></p>
+      </section>
+      <form class="form-inline" id="user-form" style="display: block;">
+        <div class="form-group" id="user-location-container">
+          <input type="text" class="form-control" id="user-location" placeholder="Enter your location" autocomplete="off">
+        </div>
+        <div class="form-group" id="activity-picker-container">
+          <select id="sport-filter" class="form-control">
+            <option>-- Select your Restaurant --</option>
+          
+    <option value="MOD Pizza
+    ">MOD Pizza</option>
+  
+    <option value="Blue Water Taco Grill
+    ">Blue Water Taco Grill</option>
+  
+    <option value="caffe Ladro
+    ">Caffe Labro</option>
+  
+    <option value="Uptown Espresso Belltown">Uptown Espresso Belltown</option>
+  
+    <option value="Bedlam Coffee 
+    ">Bedlam Coffee 
+  </option>
+  
+    <option value="Cafe Solstice
+    ">Cafe Solstice
+  </option>
+  
+    <option value="Bambinos Pizzeria
+    ">Bambinos Pizzeria
+  </option>
+  
+    <option value="Shiro’s Sushi
+    ">Shiro’s Sushi
+  </option>
+  
+    <option value="No Anchor">No Anchor</option>
+  
+    <option value="Thai On One">Thai On One</option>
+  
+    <option value="Rocco’s 
+    ">Rocco’s 
+  </option>
+  
+    <option value="Taqueria Cantina
+    ">Taqueria Cantina
+  </option>
+  
+    <option value="Plaza Garibaldi
+    ">Plaza Garibaldi
+  </option>
+  
+    <option value="Mantra Thai Restaurant & Bar">Mantra Thai Restaurant & Bar</option>
+  
+    <option value="The 5 point Cafe
+    ">The 5 point Cafe
+  </option>
+  
+    <option value="Zeeks Pizza
+    ">Zeeks Pizza
+  </option>
+  
+    <option value="Green Leaf Vietnamese Restaurant">Green Leaf Vietnamese Restaurant</option>
 
-<!-- <iframe id='map'
-  frameborder="0" style="border:0"
-  src="https://www.google.com/maps/embed/v1/place?key=AIzaSyD0kHBkO9Rmi0fOKp4q5GlLZK6IgpX46z8
-    &q=codefellows,Seattle+WA" allowfullscreen>
-</iframe> -->
+    <option value="Eastern Cafe
+">Eastern Cafe
+</option>
+
+<option value="Tilikum Place Cafe
+">Tilikum Place Cafe
+</option>
+
+<option value="Sugar Bakery & Coffeehouse
+">Sugar Bakery & Coffeehouse
+</option>
+
+
+  </select>
+        </div>
+        <div class="form-group" id="user-form-submit">
+          <a class="btn" id="user-form-button">Search</a>
+        </div>
+      </form>
+    </section>
+
 <script>
   function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -31,33 +115,27 @@
           zoom: 15,
           mapTypeId: 'roadmap'
         });
-
  // Create the search box and link it to the UI element.
  var input = document.getElementById('pac-input');
         var searchBox = new google.maps.places.SearchBox(input);
         map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
-
         // Bias the SearchBox results towards current map's viewport.
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
-
         var markers = [];
         // Listen for the event fired when the user selects a prediction and retrieve
         // more details for that place.
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
-
           if (places.length == 0) {
             return;
           }
-
           // Clear out the old markers.
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
           markers = [];
-
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
@@ -65,14 +143,13 @@
               console.log("Returned place contains no geometry");
               return;
             }
-            // var icon = {
-            //   url: place.icon,
-            //   size: new google.maps.Size(71, 71),
-            //   origin: new google.maps.Point(0, 0),
-            //   anchor: new google.maps.Point(17, 34),
-            //   scaledSize: new google.maps.Size(25, 25)
-            // };
-
+            var icon = {
+              url: place.icon,
+              size: new google.maps.Size(71, 71),
+              origin: new google.maps.Point(0, 0),
+              anchor: new google.maps.Point(17, 34),
+              scaledSize: new google.maps.Size(25, 25)
+            };
             // Create a marker for each place.
             markers.push(new google.maps.Marker({
               map: map,
@@ -80,7 +157,6 @@
               title: place.name,
               position: place.geometry.location
             }));
-
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -91,8 +167,6 @@
           map.fitBounds(bounds);
         });
       }
-
-
 </script>
 
     
@@ -104,9 +178,7 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD0kHBkO9Rmi0fOKp4q5GlLZK6IgpX46z8&libraries=places&callback=initAutocomplete">
     </script> 
-  <script src="http://maps.googleapis.com/maps/app.js"></script>
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBTKyZxVOsJnDufgChqaYAPyn6Uyjgzs9g&callback=initMap">
-    </script>
+  
 
   <div>
     <img id="restaurantImage" src="https://placehold.it/200x200/111" alt="" />
