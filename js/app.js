@@ -1,6 +1,10 @@
 ('use strict');
 for(var i = 0; i < restArr; i++) {
+<<<<<<< HEAD
   console.log(restArr[i]);
+=======
+    console.log(restArr[i]);
+>>>>>>> acdb37a8873052d9875de4019630bd4a73895b85
 }
 
 var restArr = []; //Array for storing new objects
@@ -24,7 +28,7 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
   this.restLink = restLink;
   this.src = src; //For images
   restArr.push(this); //All new objects will go into array so we can loop through info
-};
+}
 
 //Protype for restaurant info/list and images
 // CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
