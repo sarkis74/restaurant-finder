@@ -152,4 +152,4 @@ document.body.appendChild(restaurantCodability);
 var restaurantMenu = document.createElement('p');
 restaurantMenu.textContent = 'Restaurant Menu';
 document.body.appendChild(restaurantMenu);
->>>>>>> fe2b8f1238be7f9adcbd7bf308d863c788c38d91
+ 
