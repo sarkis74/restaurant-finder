@@ -36,7 +36,9 @@ h2 {
 }
 
 #restaurant-info {
-    margin-left: 100px;
+    float: left;
+    margin-top: -750px;
+    margin-left: 1000px;
 }
 
 
