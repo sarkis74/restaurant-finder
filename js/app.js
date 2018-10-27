@@ -6,22 +6,24 @@ var restPastSearches = []; //Array for storing past searches
 var info; //For block of restaurant info
 
 var mapIcons = document.getElementById('map'); //Grab map element
-var restaurantInfoDisplayAside = document.createElement('aside'); //Creates html element on which info will be displayed
+var restaurantInfoDisplayAside = document.getElementById('restaurant info'); //Creates html element on which info will be displayed
+var restUnList = document.getElementById('restaurant list');
+var restListItem = document.getElementById('restaurant list item');
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, phone, restCodeability, src, restLink) {
-  this.restName = restName;
-  this.restAddress = restAddress;
-  this.restHours = restHours;
-  this.foodType = foodType;
-  this.keywords = keywords;
-  this.phone = phone;
-  this.restCodeability = restCodeability;
-  this.src = src; //For icon images??
-  this.restLink = restLink;
+    this.restName = restName;
+    this.restAddress = restAddress;
+    this.restHours = restHours;
+    this.foodType = foodType;
+    this.keywords = keywords;
+    this.phone = phone;
+    this.restCodeability = restCodeability;
+    this.src = src; //For images
+    this.restLink = restLink;
 
-  restArr.push(this); //All new objects will go into array so we can loop through info
-};
+    restArr.push(this); //All new objects will go into array so we can loop through info    
+}
 
 //Protype for restaurant info/list and images
 CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
@@ -34,15 +36,24 @@ var restaurantSearchHandler = function(event) {
   for(var i = 0; i < restArr; i++) {
     //Checks restArr to see if target matches and array item
     if(event.target.id === restArr[i].restName || event.target.id === restArr[i].restAddress || event.target.id === restArr[i].foodType || event.target.id === restArr[i].keywords[i]) {
-      restaurantInfoDisplayAside.textContent = this.restName + '\n' + this.restAddress + '\n' + this.restHours + '\n' + this.phone + '\n' + this.restCodeability + '\n' + this.restLink;
+
+        restListItem.textContent = 'Restaurant Name: ' + this.restName + '\n' + 'Restaurant Address: ' + this.restAddress + '\n' + 'Restaurant Hours: ' + this.restHours + '\n' + 'Restaurant Website: ' + this.restLink;
+        restaurantUnList.appendChild(restaurantListItem);
+
       localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+        }
     }
-  }
+    restaurantInfoDisplayAside.appendChild(restaurantUnList);
+}
 
   //Function for clearing localStorage will be linked to button and have removeItem() and alert
-  var clearFunction = function() {
+var clearFunction = function() {
+    for(var i in restArr) {
+        localStorage.removeItem('pastHistory');
+        alert('Your history is cleared.')
+    }
 
-  };
+
 
   //Twenty restaurants will inherit object properties and method
   //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
@@ -68,9 +79,6 @@ var restaurantSearchHandler = function(event) {
 
   //Restaurant 8//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
   new CreateRestaurant('Shiro’s Sushi', '2401 2nd Ave, Seattle, WA 98121', 'Sunday - Saturday 5:30pm - 10:30pm', 'sit-down, sushi, soup, tea, wine, ice cream', ['sushi'], '(206)443-9844', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' http://shiros.com/');
-
-  //Restaurant 9//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
-  new CreateRestaurant(' No Anchor', '2505 2nd Ave #105, Seattle, WA 98121', 'Sunday 11am - 11pm, Monday- Thursday 12pm - 11pm, Friday 12pm -12am, Saturday 11am - 11pm', 'bar, sit-down', ['beer', 'liquor', 'wine', 'appetizers', 'American'], '(206)448-2610', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' https://www.noanchorbar.com/ ');
 
   //Restaurant 10//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS[ARRAY], PHONE, CODEABILITY[ARRAY], WEBSITE)
   new CreateRestaurant('Thai On One', '2904 1st Ave, Seattle, WA 98121', 'Sunday 12pm - 9:30pm, Monday - Friday 11am - 9:30pm, Saturday 12pm - 9:30pm', 'Thai, sit-down', ['thai', 'appetizers', 'noodles', 'soup'], '(206)441-4348', ['- Wifi no', '-Price $', '- Distance .1 miles'], ' https://www.thaion1.com/');
