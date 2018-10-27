@@ -159,4 +159,3 @@ searchWord.addEventListener('change',restaurantSearchHandler);
 // var restaurantMenu = document.createElement('p');
 // restaurantMenu.textContent = 'Restaurant Menu';
 // document.body.appendChild(restaurantMenu);
- 
