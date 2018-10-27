@@ -30,7 +30,7 @@ CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own ico
 //
 var restaurantSearchHandler = function(event) {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-//var searchWord = event.target['pac-input'].value;
+
   for(var i = 0; i < restArr; i++) {
     //Checks restArr to see if target matches and array item
     if(searchWord === restArr[i].restName || searchWord === restArr[i].restAddress || searchWord === restArr[i].foodType || searchWord === restArr[i].keywords[i]) {
@@ -113,6 +113,7 @@ searchWord.addEventListener('change',restaurantSearchHandler);
 //   if (e.keyCode === 13) {
 //     restaurantSearchHandler();
 //   }
+
 
 //console.log(input);
 // var restaurantName = document.createElement('h2');
