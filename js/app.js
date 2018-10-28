@@ -1,12 +1,4 @@
 ('use strict');
-for(var i = 0; i < restArr; i++) {
-<<<<<<< HEAD
-  console.log(restArr[i]);
-=======
-    console.log(restArr[i]);
->>>>>>> acdb37a8873052d9875de4019630bd4a73895b85
-}
-
 var restArr = []; //Array for storing new objects
 var restPastSearches = []; //Array for storing past searches
 var restKeywords = [];
@@ -36,6 +28,7 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 // };
 
 var restaurantSearchHandler = function(event) {
+  console.log('here');
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i = 0; i < restArr.length; i++) {
     //restKeywords.push(restArr[i].keywords[i])
