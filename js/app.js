@@ -38,6 +38,7 @@ CreateRestaurant.prototype.renderImages = function() {
 };
 
 var restaurantSearchHandler = function(event) {
+  console.log('here');
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 
   for(var i = 0; i < restArr.length; i++) {
