@@ -1,5 +1,4 @@
 ('use strict');
-
 var restArr = []; //Array for storing new objects
 var restArrNames = [];
 var mapInfo = [];
