@@ -31,11 +31,17 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 };
 
 //Protype for restaurant images
-CreateRestaurant.prototype.renderImages = function() { 
+CreateRestaurant.prototype.renderImages = function() {
   restImage.src = this.src;
 };
 
 var restaurantSearchHandler = function(event) {
+  console.log('here');
+  //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+
+  for(var i = 0; i < restArr.length; i++) {
+    //Checks restArr to see if target matches and array item
+    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
 
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
@@ -65,6 +71,8 @@ var restaurantSearchHandler = function(event) {
       tabRowEl.appendChild(tabDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
+    }
+  
   } //Conditional to check if search name matches name on file 
       if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
         var nameLiEl = document.createElement('li');
@@ -113,6 +121,7 @@ var restaurantSearchHandler = function(event) {
     
   };
   
+
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
 
@@ -182,16 +191,16 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
 
-//Loop for filling dropdown 
+//Loop for filling dropdown
 for(var i in restArrNames) {
   var option = restArrNames[i];
-  var optionEl = document.createElement("option");
+  var optionEl = document.createElement('option');
   optionEl.textContent = option;
   optionEl.value = option;
   searchWord.appendChild(optionEl);
 }
 
-//Loop for map page info 
+//Loop for map page info
 for(var i in restArr) {
   mapInfo.push(restArr[i].src);
   mapInfo.push(restArr[i].restName);
@@ -202,8 +211,3 @@ for(var i in restArr) {
   
 }
 
-<<<<<<< HEAD
-
-=======
-console.log(mapInfo);
->>>>>>> 6d58ea5f60ca2a59e97873affe425bf66d9e4330
