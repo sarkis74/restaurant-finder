@@ -6,7 +6,7 @@ var mapInfo = [];
 var restPastSearches = []; //Array for storing past searches
 var restKeywords = [];
 var searchWord = document.getElementById('restaurant-filter');
-
+var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
 
@@ -42,7 +42,7 @@ var restaurantSearchHandler = function(event) {
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value ) {
+    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/details.html') {
       
         var nameLiEl = document.createElement('li');
         nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
@@ -89,6 +89,7 @@ var restaurantSearchHandler = function(event) {
 
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
+// mapWord.addEventListener('change', restaurantSearchHandler);
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
@@ -176,57 +177,37 @@ for(var i in restArrNames) {
   
 // }
 
+// for(var i in restArr) {
+//   //Checks restArr to see if target matches and array item
+//    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
+
 //    var tabDataEl = document.createElement('td');
-  //     tabDataEl.textContent = restArr[i].src;
-  //     tabRowEl.appendChild(tabDataEl);
-  //     //Appending child 'table-row' to parent 'table'
-  //     tableEl.appendChild(tabRowEl);
+//       tabDataEl.textContent = restArr[i].src;
+//       tabRowEl.appendChild(tabDataEl);
+//       //Appending child 'table-row' to parent 'table'
+//       tableEl.appendChild(tabRowEl);
       
+//       var tabDataEl = document.createElement('td');
+//       tabDataEl.textContent = restArr[i].restName;
+//       tabRowEl.appendChild(tabDataEl);
+//       //Appending child 'table-row' to parent 'table'
+//       tableEl.appendChild(tabRowEl);
 
-  //     var tabDataEl = document.createElement('td');
-  //     tabDataEl.textContent = restArr[i].restName;
-  //     tabRowEl.appendChild(tabDataEl);
-  //     //Appending child 'table-row' to parent 'table'
-  //     tableEl.appendChild(tabRowEl);
+//       var tabDataEl = document.createElement('td');
+//       tabDataEl.textContent = restArr[i].restAddress;
+//       tabRowEl.appendChild(tabDataEl);
+//       //Appending child 'table-row' to parent 'table'
+//       tableEl.appendChild(tabRowEl);
 
-  //     var tabDataEl = document.createElement('td');
-  //     tabDataEl.textContent = restArr[i].restAddress;
-  //     tabRowEl.appendChild(tabDataEl);
-  //     //Appending child 'table-row' to parent 'table'
-  //     tableEl.appendChild(tabRowEl);
+//       var tabDataEl = document.createElement('td');
+//       tabDataEl.textContent = restArr[i].restHours;
+//       tabRowEl.appendChild(tabDataEl);
+//       //Appending child 'table-row' to parent 'table'
+//       tableEl.appendChild(tabRowEl);
 
-  //     var tabDataEl = document.createElement('td');
-  //     tabDataEl.textContent = restArr[i].restHours;
-  //     tabRowEl.appendChild(tabDataEl);
-  //     //Appending child 'table-row' to parent 'table'
-  //     tableEl.appendChild(tabRowEl);
+//       var br = document.createElement("br");
+//       tableEl.appendChild(br);
 
-  //     var br = document.createElement("br");
-  //     tableEl.appendChild(br);
-
-  // } 
-  // //Conditional to check if search name matches name on file 
-  //     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
-
-    //   var tabDataEl = document.createElement('td');
-    //   tabDataEl.textContent = restArr[i].restName;
-    //   tabRowEl.appendChild(tabDataEl);
-    //   //Appending child 'table-row' to parent 'table'
-    //   tableEl.appendChild(tabRowEl);
-
-    //   var tabDataEl = document.createElement('td');
-    //   tabDataEl.textContent = restArr[i].restAddress;
-    //   tabRowEl.appendChild(tabDataEl);
-    //   //Appending child 'table-row' to parent 'table'
-    //   tableEl.appendChild(tabRowEl);
-
-    //   var tabDataEl = document.createElement('td');
-    //   tabDataEl.textContent = restArr[i].restHours;
-    //   tabRowEl.appendChild(tabDataEl);
-    //   //Appending child 'table-row' to parent 'table'
-    //   tableEl.appendChild(tabRowEl);
-    // }
-  
-  // } //Conditional to check if search name matches name on file 
-  //     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
+//   }
+// }
 
