@@ -42,33 +42,37 @@ var restaurantSearchHandler = function(event) {
   for(var i in restArr) {
     //Checks restArr to see if target matches and array item
     if(restArr[i].restName === event.target.value ) {
-
+      if (restaurantUnList.hasChildNodes()) {
+        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+        }
+      }
       var nameLiEl = document.createElement('li');
-      nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
+      nameLiEl.textContent = 'Name: ' + restArr[i].restName;
       restaurantUnList.appendChild(nameLiEl);
 
       var locationLiEl = document.createElement('li');
-      locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+      locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
       restaurantUnList.appendChild(locationLiEl);
 
       var hoursLiEl = document.createElement('li');
-      hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+      hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
       restaurantUnList.appendChild(hoursLiEl);
 
       var typeLiEl = document.createElement('li');
-      typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+      typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
       restaurantUnList.appendChild(typeLiEl);
 
       var phoneLiEl = document.createElement('li');
-      phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
+      phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
       restaurantUnList.appendChild(phoneLiEl);
 
       var websiteLiEL = document.createElement('li');
-      websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+      websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
       restaurantUnList.appendChild(websiteLiEL);
 
       var codabilityLiEL = document.createElement('li');
-      codabilityLiEL.textContent = 'Restaurant Codability: ' + restArr[i].restCodability;
+      codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
       restaurantUnList.appendChild(codabilityLiEL);
 
       var restImage = document.createElement('img');

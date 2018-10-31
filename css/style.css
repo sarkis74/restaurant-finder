@@ -10,6 +10,7 @@ body{
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
 header{
   height:100px;
   margin-bottom:0px;
@@ -144,4 +145,7 @@ height: 255px;
   width: 100%;
   position: relative;
   opacity: .85;
+}
+#detailsH1{
+margin-top: 325px;
 }
