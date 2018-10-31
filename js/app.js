@@ -20,7 +20,7 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
   this.restLink = restLink;
   this.src = src; //For images
   restArr.push(this); //All new objects will go into array so we can loop through info
-}
+};
 
 //Protype for restaurant info/list and images
 // CreateRestaurant.prototype.renderRestIconsOnMap = function() { //Use our own icon images and post them on map coordinates
@@ -29,7 +29,7 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 
 var restaurantSearchHandler = function(event) {
   console.log('here');
-//Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+  //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i = 0; i < restArr.length; i++) {
     //restKeywords.push(restArr[i].keywords[i])
     //Checks restArr to see if target matches and array item

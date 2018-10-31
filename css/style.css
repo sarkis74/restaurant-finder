@@ -5,11 +5,11 @@
   }
      
   #map {
-    height: 650px;  
-    width: 650px; 
+    height: 450px;  
+    width: 100%; 
    }
 
-   #pac-input {
+   /* #pac-input {
     background-color: #fff;
     font-family: Roboto;
     font-size: 15px;
@@ -18,11 +18,11 @@
     padding: 0;
     text-overflow: ellipsis;
     width: 400px;
-   }
+   } */
 
-   #pac-input:focus {
+   /* #pac-input:focus {
     border-color: #4d90fe;
-  }
+  } */
 
    
 h1 {
@@ -35,15 +35,10 @@ h2 {
   font-weight: bold;
 }
 
-#restaurant-info {
+ #restaurant-info {
     float: left;
-<<<<<<< HEAD
     /* margin-top: -750px; */
-    margin-left: 1000px;
-=======
-    margin-top: -750px;
-    margin-left: 2500px;
->>>>>>> origin
+     margin-left: 1000px;
 }
 
 
