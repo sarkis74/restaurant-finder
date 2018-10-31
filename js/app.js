@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var restArr = []; //Array for storing new objects
 var restArrNames = [];
 var mapInfo = [];
@@ -36,56 +36,59 @@ CreateRestaurant.prototype.renderImages = function() {
 };
 
 var restaurantSearchHandler = function(event) {
-  
-  //   if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
 
-//Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+
+  //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
-   //Checks restArr to see if target matches and array item
+    //Checks restArr to see if target matches and array item
     if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/details.html') {
-      
-        var nameLiEl = document.createElement('li');
-        nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
-        restaurantUnList.appendChild(nameLiEl);
-        
-        var locationLiEl = document.createElement('li');
-        locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
-        restaurantUnList.appendChild(locationLiEl);
-
-        var hoursLiEl = document.createElement('li');
-        hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
-        restaurantUnList.appendChild(hoursLiEl);
-
-        var typeLiEl = document.createElement('li');
-        typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
-        restaurantUnList.appendChild(typeLiEl);
-
-        var phoneLiEl = document.createElement('li');
-        phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
-        restaurantUnList.appendChild(phoneLiEl);
-
-        var websiteLiEL = document.createElement('li');
-        websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
-        restaurantUnList.appendChild(websiteLiEL);
-       
-        var codabilityLiEL = document.createElement('li');
-        codabilityLiEL.textContent = 'Restaurant Codability: ' + restArr[i].restCodability;
-        restaurantUnList.appendChild(codabilityLiEL);
-
-        var restImage = document.createElement('img');
-        restImage.src = restArr[i].src; 
-        restaurantUnList.appendChild(restImage);
-
-        var br = document.createElement("br");
-        restaurantUnList.appendChild(br);
-
+      if (restaurantUnList.hasChildNodes()) {
+        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+        }
       }
-      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+      var nameLiEl = document.createElement('li');
+      nameLiEl.textContent = 'Name: ' + restArr[i].restName;
+      restaurantUnList.appendChild(nameLiEl);
+
+      var locationLiEl = document.createElement('li');
+      locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
+      restaurantUnList.appendChild(locationLiEl);
+
+      var hoursLiEl = document.createElement('li');
+      hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
+      restaurantUnList.appendChild(hoursLiEl);
+
+      var typeLiEl = document.createElement('li');
+      typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
+      restaurantUnList.appendChild(typeLiEl);
+
+      var phoneLiEl = document.createElement('li');
+      phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+      restaurantUnList.appendChild(phoneLiEl);
+
+      var websiteLiEL = document.createElement('li');
+      websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+      restaurantUnList.appendChild(websiteLiEL);
+
+      var codabilityLiEL = document.createElement('li');
+      codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+      restaurantUnList.appendChild(codabilityLiEL);
+
+      var restImage = document.createElement('img');
+      restImage.src = restArr[i].src;
+      restaurantUnList.appendChild(restImage);
+
+      var br = document.createElement('br');
+      restaurantUnList.appendChild(br);
+
     }
-    restaurantAside.appendChild(restaurantUnList);
-    document.body.appendChild(restaurantAside);
-  };
-  
+    localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+  }
+  restaurantAside.appendChild(restaurantUnList);
+  document.body.appendChild(restaurantAside);
+};
+
 
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
@@ -166,6 +169,17 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
+
+//Loop for map page info
+for(var i in restArr) {
+  mapInfo.push(restArr[i].src);
+  mapInfo.push(restArr[i].restName);
+  mapInfo.push(restArr[i].restAddress);
+  mapInfo.push(restArr[i].restHours);
+  var b = mapInfo.splice(0, 4);
+  mapInfo.push(b); 
+};
+
 // //Loop for map page info
 // for(var i in restArr) {
 //   mapInfo.push(restArr[i].src);
@@ -174,7 +188,7 @@ for(var i in restArrNames) {
 //   mapInfo.push(restArr[i].restHours);
 //   var b = mapInfo.splice(0, 4);
 //   mapInfo.push(b);
-  
+
 // }
 
 // for(var i in restArr) {
@@ -182,6 +196,7 @@ for(var i in restArrNames) {
 //    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
 
 //    var tabDataEl = document.createElement('td');
+
 //       tabDataEl.textContent = restArr[i].src;
 //       tabRowEl.appendChild(tabDataEl);
 //       //Appending child 'table-row' to parent 'table'
@@ -210,4 +225,59 @@ for(var i in restArrNames) {
 
 //   }
 // }
+
+//     tabDataEl.textContent = restArr[i].src;
+//     tabRowEl.appendChild(tabDataEl);
+//     //Appending child 'table-row' to parent 'table'
+//     tableEl.appendChild(tabRowEl);
+
+
+//     var tabDataEl = document.createElement('td');
+//     tabDataEl.textContent = restArr[i].restName;
+//     tabRowEl.appendChild(tabDataEl);
+//     //Appending child 'table-row' to parent 'table'
+//     tableEl.appendChild(tabRowEl);
+
+//     var tabDataEl = document.createElement('td');
+//     tabDataEl.textContent = restArr[i].restAddress;
+//     tabRowEl.appendChild(tabDataEl);
+//     //Appending child 'table-row' to parent 'table'
+//     tableEl.appendChild(tabRowEl);
+
+//     var tabDataEl = document.createElement('td');
+//     tabDataEl.textContent = restArr[i].restHours;
+//     tabRowEl.appendChild(tabDataEl);
+//     //Appending child 'table-row' to parent 'table'
+//     tableEl.appendChild(tabRowEl);
+
+//     var br = document.createElement("br");
+//     tableEl.appendChild(br);
+
+// }
+// //Conditional to check if search name matches name on file
+//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
+
+//   var tabDataEl = document.createElement('td');
+//   tabDataEl.textContent = restArr[i].restName;
+//   tabRowEl.appendChild(tabDataEl);
+//   //Appending child 'table-row' to parent 'table'
+//   tableEl.appendChild(tabRowEl);
+
+//   var tabDataEl = document.createElement('td');
+//   tabDataEl.textContent = restArr[i].restAddress;
+//   tabRowEl.appendChild(tabDataEl);
+//   //Appending child 'table-row' to parent 'table'
+//   tableEl.appendChild(tabRowEl);
+
+//   var tabDataEl = document.createElement('td');
+//   tabDataEl.textContent = restArr[i].restHours;
+//   tabRowEl.appendChild(tabDataEl);
+//   //Appending child 'table-row' to parent 'table'
+//   tableEl.appendChild(tabRowEl);
+// }
+
+// } //Conditional to check if search name matches name on file
+//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
+
+
 

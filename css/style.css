@@ -10,6 +10,7 @@ body{
   margin: auto;
   font-family: 'Roboto Condensed', sans-serif;
 }
+
 header{
   height:100px;
   margin-bottom:0px;
@@ -47,10 +48,9 @@ nav li {
   }
      
   #map {
-    height: 650px;  
-    width: 650px; 
+    height: 450px;  
+    width: 100%; 
    }
-
    
 h1 {
   font-size: 18pt;
@@ -79,6 +79,7 @@ h4{
   font-weight: lighter;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+
 
 /* #restaurant-info {
   float: left;
@@ -144,4 +145,7 @@ height: 255px;
   width: 100%;
   position: relative;
   opacity: .85;
+}
+#detailsH1{
+margin-top: 325px;
 }
