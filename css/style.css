@@ -39,3 +39,10 @@ img {
   width: 50%;
   height: 50%;
 }
+
+table { width: 400px; }
+td
+{
+    float: left;
+    margin-left: 5px;
+}
