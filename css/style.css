@@ -98,6 +98,13 @@ h4{
   box-shadow: 16 8px 16px 0 rgba(0,0,0,0.2);
 }
 
+table { width: 400px; }
+td
+{
+    float: left;
+    margin-left: 5px;
+}
+
 .container {
   padding: 2px 16px;
   height: 225px;
@@ -137,5 +144,4 @@ height: 255px;
   width: 100%;
   position: relative;
   opacity: .85;
-
-
+}
