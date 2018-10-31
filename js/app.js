@@ -32,17 +32,17 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
 };
 
 //Protype for restaurant images
-CreateRestaurant.prototype.renderImages = function() { 
+CreateRestaurant.prototype.renderImages = function() {
   restImage.src = this.src;
 };
 
 var restaurantSearchHandler = function(event) {
   console.log('here');
-//Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
+  //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 
   for(var i = 0; i < restArr.length; i++) {
     //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/index.html") {
+    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
 
       var imgDataEl = document.createElement('td');
       imgDataEl.textContent = restArr[i].src;
@@ -50,13 +50,13 @@ var restaurantSearchHandler = function(event) {
       tabRowEl.appendChild(imgDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
-      
+
       var nameDataEl = document.createElement('td');
       nameDataEl.textContent = restArr[i].restName;
       //Appending child 'table-data' to parent 'table-row'
       tabRowEl.appendChild(nameDataEl);
       //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl); 
+      tableEl.appendChild(tabRowEl);
 
       var locationDataEl = document.createElement('td');
       locationDataEl.textContent = restArr[i].restAddress;
@@ -71,51 +71,51 @@ var restaurantSearchHandler = function(event) {
       tabRowEl.appendChild(hoursDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
-      tableEl.style.border="1px solid red";
-  }
-      if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
-        var nameLiEl = document.createElement('li');
-        nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
-        restaurantUnList.appendChild(nameLiEl);
-        
-        var locationLiEl = document.createElement('li');
-        locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
-        restaurantUnList.appendChild(locationLiEl);
-
-        var hoursLiEl = document.createElement('li');
-        hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
-        restaurantUnList.appendChild(hoursLiEl);
-
-        var typeLiEl = document.createElement('li');
-        typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
-        restaurantUnList.appendChild(typeLiEl);
-
-        var phoneLiEl = document.createElement('li');
-        phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
-        restaurantUnList.appendChild(phoneLiEl);
-
-        var websiteLiEL = document.createElement('li');
-        websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
-        restaurantUnList.appendChild(websiteLiEL);
-       
-        var codabilityLiEL = document.createElement('li');
-        codabilityLiEL.textContent = 'Restaurant Codability: ' + restArr[i].restCodability;
-        restaurantUnList.appendChild(codabilityLiEL);
-
-        var restImage = document.createElement('img');
-        restImage.src = restArr[i].src; 
-        restaurantUnList.appendChild(restImage);
-      }
-  
-      var br = document.createElement("br");
-      restaurantUnList.appendChild(br);
-
-      localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+      tableEl.style.border='1px solid red';
     }
-    restaurantAside.appendChild(restaurantUnList);
-  document.body.appendChild(restaurantAside);
+    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/details.html') {
+      var nameLiEl = document.createElement('li');
+      nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
+      restaurantUnList.appendChild(nameLiEl);
+
+      var locationLiEl = document.createElement('li');
+      locationLiEl.textContent = 'Restaurant Location: ' + restArr[i].restAddress;
+      restaurantUnList.appendChild(locationLiEl);
+
+      var hoursLiEl = document.createElement('li');
+      hoursLiEl.textContent = 'Restaurant Hours: ' + restArr[i].restHours;
+      restaurantUnList.appendChild(hoursLiEl);
+
+      var typeLiEl = document.createElement('li');
+      typeLiEl.textContent = 'Restaurant Cuisine: ' + restArr[i].foodType;
+      restaurantUnList.appendChild(typeLiEl);
+
+      var phoneLiEl = document.createElement('li');
+      phoneLiEl.textContent = 'Restaurant Phone Number: ' + restArr[i].restPhone;
+      restaurantUnList.appendChild(phoneLiEl);
+
+      var websiteLiEL = document.createElement('li');
+      websiteLiEL.textContent = 'Restaurant Website: ' + restArr[i].restLink;
+      restaurantUnList.appendChild(websiteLiEL);
+
+      var codabilityLiEL = document.createElement('li');
+      codabilityLiEL.textContent = 'Restaurant Codability: ' + restArr[i].restCodability;
+      restaurantUnList.appendChild(codabilityLiEL);
+
+      var restImage = document.createElement('img');
+      restImage.src = restArr[i].src;
+      restaurantUnList.appendChild(restImage);
+    }
+
+    var br = document.createElement('br');
+    restaurantUnList.appendChild(br);
+
+    localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
   }
-  
+  restaurantAside.appendChild(restaurantUnList);
+  document.body.appendChild(restaurantAside);
+};
+
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
 
@@ -185,16 +185,16 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 //Restaurant 20//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
 
-//Loop for filling dropdown 
+//Loop for filling dropdown
 for(var i in restArrNames) {
   var option = restArrNames[i];
-  var optionEl = document.createElement("option");
+  var optionEl = document.createElement('option');
   optionEl.textContent = option;
   optionEl.value = option;
   searchWord.appendChild(optionEl);
 }
 
-//Loop for map page info 
+//Loop for map page info
 for(var i in restArr) {
   mapInfo.push(restArr[i].src);
   mapInfo.push(restArr[i].restName);
