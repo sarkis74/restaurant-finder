@@ -11,7 +11,6 @@ var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
 
 var tableEl = document.getElementById('map-table');
-//tableEl.style.border="2px solid black";
 var tabRowEl = document.createElement('tr');
 var tabHeadEl = document.createElement('th');
 tabHeadEl.textContent = '';
@@ -37,42 +36,36 @@ CreateRestaurant.prototype.renderImages = function() {
 };
 
 var restaurantSearchHandler = function(event) {
-  console.log('here');
+
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-
-  for(var i = 0; i < restArr.length; i++) {
-    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/index.html") {
-
-      var imgDataEl = document.createElement('td');
-      imgDataEl.textContent = restArr[i].src;
-      //Appending child 'table-data' to parent 'table-row'
-      tabRowEl.appendChild(imgDataEl);
+  for(var i in restArr) {
+   //Checks restArr to see if target matches and array item
+    if(restArr[i].restName === event.target.value) {
+      
+     var tabDataEl = document.createElement('td');
+      tabDataEl.textContent = restArr[i].src;
+      tabRowEl.appendChild(tabDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
       
-      var nameDataEl = document.createElement('td');
-      nameDataEl.textContent = restArr[i].restName;
-      //Appending child 'table-data' to parent 'table-row'
-      tabRowEl.appendChild(nameDataEl);
-      //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl); 
-
-      var locationDataEl = document.createElement('td');
-      locationDataEl.textContent = restArr[i].restAddress;
-      //Appending child 'table-data' to parent 'table-row'
-      tabRowEl.appendChild(locationDataEl);
+      var tabDataEl = document.createElement('td');
+      tabDataEl.textContent = restArr[i].restName;
+      tabRowEl.appendChild(tabDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
 
-      var hoursDataEl = document.createElement('td');
-      hoursDataEl.textContent = restArr[i].restHours;
-      //Appending child 'table-data' to parent 'table-row'
-      tabRowEl.appendChild(hoursDataEl);
+      var tabDataEl = document.createElement('td');
+      tabDataEl.textContent = restArr[i].restAddress;
+      tabRowEl.appendChild(tabDataEl);
       //Appending child 'table-row' to parent 'table'
       tableEl.appendChild(tabRowEl);
-      tableEl.style.border="1px solid red";
-  }
+
+      var tabDataEl = document.createElement('td');
+      tabDataEl.textContent = restArr[i].restHours;
+      tabRowEl.appendChild(tabDataEl);
+      //Appending child 'table-row' to parent 'table'
+      tableEl.appendChild(tabRowEl);
+  } //Conditional to check if search name matches name on file 
       if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
         var nameLiEl = document.createElement('li');
         nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
@@ -105,16 +98,20 @@ var restaurantSearchHandler = function(event) {
         var restImage = document.createElement('img');
         restImage.src = restArr[i].src; 
         restaurantUnList.appendChild(restImage);
-      }
-  
-      var br = document.createElement("br");
-      restaurantUnList.appendChild(br);
 
+        var br = document.createElement("br");
+        restaurantUnList.appendChild(br);
+
+      }
       localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
     }
+    var tabContainer = document.getElementById('restaurant-info');
+    tabContainer.appendChild(tableEl);
     restaurantAside.appendChild(restaurantUnList);
-  document.body.appendChild(restaurantAside);
-  }
+    document.body.appendChild(restaurantAside);
+    console.log(document.getElementById('map-table').rows[0].cells.length);
+    
+  };
   
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
@@ -200,8 +197,13 @@ for(var i in restArr) {
   mapInfo.push(restArr[i].restName);
   mapInfo.push(restArr[i].restAddress);
   mapInfo.push(restArr[i].restHours);
-  var b = mapInfo.splice(0,4);
+  var b = mapInfo.splice(0, 4);
   mapInfo.push(b);
+  
 }
 
+<<<<<<< HEAD
+
+=======
 console.log(mapInfo);
+>>>>>>> 6d58ea5f60ca2a59e97873affe425bf66d9e4330
