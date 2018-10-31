@@ -1,4 +1,4 @@
-('use strict');
+'use strict'
 var restArr = []; //Array for storing new objects
 var restArrNames = [];
 var mapInfo = [];
@@ -36,45 +36,14 @@ CreateRestaurant.prototype.renderImages = function() {
 };
 
 var restaurantSearchHandler = function(event) {
-  console.log('here');
-  //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-
-  for(var i = 0; i < restArr.length; i++) {
-    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
+  
+  //   if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
 
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value) {
+    if(restArr[i].restName === event.target.value ) {
       
-     var tabDataEl = document.createElement('td');
-      tabDataEl.textContent = restArr[i].src;
-      tabRowEl.appendChild(tabDataEl);
-      //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl);
-      
-      var tabDataEl = document.createElement('td');
-      tabDataEl.textContent = restArr[i].restName;
-      tabRowEl.appendChild(tabDataEl);
-      //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl);
-
-      var tabDataEl = document.createElement('td');
-      tabDataEl.textContent = restArr[i].restAddress;
-      tabRowEl.appendChild(tabDataEl);
-      //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl);
-
-      var tabDataEl = document.createElement('td');
-      tabDataEl.textContent = restArr[i].restHours;
-      tabRowEl.appendChild(tabDataEl);
-      //Appending child 'table-row' to parent 'table'
-      tableEl.appendChild(tabRowEl);
-    }
-  
-  } //Conditional to check if search name matches name on file 
-      if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
         var nameLiEl = document.createElement('li');
         nameLiEl.textContent = 'Restaurant Name: ' + restArr[i].restName;
         restaurantUnList.appendChild(nameLiEl);
@@ -113,12 +82,8 @@ var restaurantSearchHandler = function(event) {
       }
       localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
     }
-    var tabContainer = document.getElementById('restaurant-info');
-    tabContainer.appendChild(tableEl);
     restaurantAside.appendChild(restaurantUnList);
     document.body.appendChild(restaurantAside);
-    console.log(document.getElementById('map-table').rows[0].cells.length);
-    
   };
   
 
@@ -200,14 +165,68 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
-//Loop for map page info
-for(var i in restArr) {
-  mapInfo.push(restArr[i].src);
-  mapInfo.push(restArr[i].restName);
-  mapInfo.push(restArr[i].restAddress);
-  mapInfo.push(restArr[i].restHours);
-  var b = mapInfo.splice(0, 4);
-  mapInfo.push(b);
+// //Loop for map page info
+// for(var i in restArr) {
+//   mapInfo.push(restArr[i].src);
+//   mapInfo.push(restArr[i].restName);
+//   mapInfo.push(restArr[i].restAddress);
+//   mapInfo.push(restArr[i].restHours);
+//   var b = mapInfo.splice(0, 4);
+//   mapInfo.push(b);
   
-}
+// }
+
+//    var tabDataEl = document.createElement('td');
+  //     tabDataEl.textContent = restArr[i].src;
+  //     tabRowEl.appendChild(tabDataEl);
+  //     //Appending child 'table-row' to parent 'table'
+  //     tableEl.appendChild(tabRowEl);
+      
+
+  //     var tabDataEl = document.createElement('td');
+  //     tabDataEl.textContent = restArr[i].restName;
+  //     tabRowEl.appendChild(tabDataEl);
+  //     //Appending child 'table-row' to parent 'table'
+  //     tableEl.appendChild(tabRowEl);
+
+  //     var tabDataEl = document.createElement('td');
+  //     tabDataEl.textContent = restArr[i].restAddress;
+  //     tabRowEl.appendChild(tabDataEl);
+  //     //Appending child 'table-row' to parent 'table'
+  //     tableEl.appendChild(tabRowEl);
+
+  //     var tabDataEl = document.createElement('td');
+  //     tabDataEl.textContent = restArr[i].restHours;
+  //     tabRowEl.appendChild(tabDataEl);
+  //     //Appending child 'table-row' to parent 'table'
+  //     tableEl.appendChild(tabRowEl);
+
+  //     var br = document.createElement("br");
+  //     tableEl.appendChild(br);
+
+  // } 
+  // //Conditional to check if search name matches name on file 
+  //     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
+
+    //   var tabDataEl = document.createElement('td');
+    //   tabDataEl.textContent = restArr[i].restName;
+    //   tabRowEl.appendChild(tabDataEl);
+    //   //Appending child 'table-row' to parent 'table'
+    //   tableEl.appendChild(tabRowEl);
+
+    //   var tabDataEl = document.createElement('td');
+    //   tabDataEl.textContent = restArr[i].restAddress;
+    //   tabRowEl.appendChild(tabDataEl);
+    //   //Appending child 'table-row' to parent 'table'
+    //   tableEl.appendChild(tabRowEl);
+
+    //   var tabDataEl = document.createElement('td');
+    //   tabDataEl.textContent = restArr[i].restHours;
+    //   tabRowEl.appendChild(tabDataEl);
+    //   //Appending child 'table-row' to parent 'table'
+    //   tableEl.appendChild(tabRowEl);
+    // }
+  
+  // } //Conditional to check if search name matches name on file 
+  //     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
 
