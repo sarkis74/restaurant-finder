@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 var restArr = []; //Array for storing new objects
 var restArrNames = [];
 var mapInfo = [];
@@ -36,8 +36,7 @@ CreateRestaurant.prototype.renderImages = function() {
 };
 
 var restaurantSearchHandler = function(event) {
-  
-  //   if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/index.html') {
+
 
 //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
@@ -165,6 +164,17 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
+
+//Loop for map page info
+for(var i in restArr) {
+  mapInfo.push(restArr[i].src);
+  mapInfo.push(restArr[i].restName);
+  mapInfo.push(restArr[i].restAddress);
+  mapInfo.push(restArr[i].restHours);
+  var b = mapInfo.splice(0, 4);
+  mapInfo.push(b); 
+};
+
 // //Loop for map page info
 // for(var i in restArr) {
 //   mapInfo.push(restArr[i].src);
@@ -229,4 +239,5 @@ for(var i in restArrNames) {
   
   // } //Conditional to check if search name matches name on file 
   //     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
+
 
