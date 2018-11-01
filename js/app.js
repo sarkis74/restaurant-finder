@@ -41,7 +41,7 @@ var restaurantSearchHandler = function(event) {
   //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
     //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value && document.location.href === 'http://127.0.0.1:5500/details.html') {
+    if(restArr[i].restName === event.target.value ) {
       if (restaurantUnList.hasChildNodes()) {
         for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
           restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
