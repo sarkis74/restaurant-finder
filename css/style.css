@@ -19,7 +19,7 @@ header{
   height: 70px;
 }
 
-p {
+#para {
   font-size: 25px;
   border: 1px solid rgb(10, 10, 10);
   border-radius: 5px;
