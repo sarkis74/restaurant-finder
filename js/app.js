@@ -9,7 +9,7 @@ var searchWord = document.getElementById('restaurant-filter');
 var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
-restaurantUnList.id = 'info-list';
+restaurantUnList.class = 'info-list';
 
 var tableEl = document.getElementById('map-table');
 var tabRowEl = document.createElement('tr');
@@ -48,6 +48,7 @@ for(var i in restArr) {
       }
     }
     var restImage = document.createElement('img');
+    restImage.id = 'showcase';
     restImage.src = restArr[i].src;
     restaurantUnList.appendChild(restImage);
 
@@ -240,5 +241,8 @@ for(var i in restArr) {
 // document.body.appendChild(restaurantAside);
 // };
 
+var nodes = document.querySelectorAll(".info-list > *");
 
-
+for(var i=0; i<nodes.length; i++){
+  nodes[i].style.animationDelay = (i*3)+"s";
+}
