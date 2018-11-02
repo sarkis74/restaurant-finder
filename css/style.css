@@ -207,7 +207,7 @@ height: 255px;
 margin-top: 325px;
 }
 
-img {
+#showcase {
   float: left;
   width: 200px;
   height: 200px;
@@ -223,6 +223,19 @@ img {
   clear: right;
 }
 
+.info-list > *{
+  opacity: 0;
+  animation: animateBlur 5s forwards;
+}
+
+@keyframes animateBlur {
+  from {
+  opacity: 1;
+  text-shadow: 0 0 1em rgba(0,0,0,.5);
+  color: rgba(0,0,0,0);
+  }
+
+}
 
 
 
