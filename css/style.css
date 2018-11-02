@@ -1,7 +1,7 @@
 body{
   width: 1000px;
   height: 100%;
-  background-image: url('../IMG/vectorbackground.jpg');
+  background-image: url('../IMG/spaceneedle.jpg');
   background-color: #cccccc;
   background-repeat: repeat;
   background-size: 100%;
@@ -17,6 +17,36 @@ header{
   background-color: black;
   height: 70px;
 }
+
+p {
+  font-size: 25px;
+  border: 1px solid rgb(10, 10, 10);
+  border-radius: 5px;
+  padding: 10px;
+  /* box-shadow: 5px 10px lightblue; */
+  font-family: 'Courier New', Courier, monospace;
+  /* width: 100px;
+    height: 100px; */
+    background: red;
+    position: relative;
+    -webkit-animation: mymove 5s infinite; /* Safari 4.0 - 8.0 */
+    animation: mymove 5s infinite;
+    background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+  color: #e7ecf1; /* Grey text */
+}
+
+/* Safari 4.0 - 8.0 */
+/* @-webkit-keyframes mymove {
+    from {left: 0px;}
+    to {left: 50px;}
+}
+
+@keyframes mymove {
+    from {left: 0px;}
+    to {left: 50px;}
+} */
+
 
 blockquote{
   margin-top:10px;
@@ -49,22 +79,22 @@ nav li {
     height: 10px;
     padding: 12px 18px 8px 18px;
     vertical-align: middle;
-    color:rgb(58, 102, 158);
+    color:white;
     font-size: 20px;
     text-decoration: none;
   }
 
   #mapLi :hover {
-    color:white;
+    color:rgb(58, 102, 158);
   }
 
   #detailsLi :hover {
-    color:white;
+    color:rgb(58, 102, 158);
 
   }
 
   #aboutLi :hover {
-    color:white;
+    color:rgb(58, 102, 158);
   }
 
   
@@ -88,7 +118,7 @@ nav li {
  background-repeat: no-repeat;
  border: 0px solid #AAA;
  background-color:black;
- color: rgb(58, 102, 158);
+ color: white;
  font-size: 20px;
  width: 200px;
  /* margin: 0px, 0px, 0px, 0px; */
@@ -101,8 +131,8 @@ nav li {
      
   #map {
     height: 450px;  
-    width: 100%; 
-    padding: 10px;
+    width: 96%; 
+    padding: 20px;
    }
    #h1index{
      padding:12px;
@@ -219,3 +249,16 @@ height: 255px;
 margin-top: 325px;
 }
 
+ /* body{
+  width: 1000px;
+  height: 100%;
+  background-image: 
+  background-color: #cccccc;
+  background-repeat: repeat;
+  background-size: 100%;
+  background-position: center;
+  opacity: .9;
+  margin: auto;
+  font-family: ‘Roboto Condensed’, sans-serif;
+ } */
+ 
