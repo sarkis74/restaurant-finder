@@ -162,6 +162,10 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
 
 //Loop for filling dropdown
+<<<<<<< HEAD
+=======
+
+>>>>>>> f65ce8a7809afc641d5ab963637f22d67a631056
 for(var i in restArrNames) {
   var option = restArrNames[i];
   var optionEl = document.createElement('option');
