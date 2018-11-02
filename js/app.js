@@ -6,9 +6,10 @@ var mapInfo = [];
 var restPastSearches = []; //Array for storing past searches
 var restKeywords = [];
 var searchWord = document.getElementById('restaurant-filter');
-
+var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
+restaurantUnList.class = 'info-list';
 
 var tableEl = document.getElementById('map-table');
 var tabRowEl = document.createElement('tr');
@@ -37,61 +38,67 @@ CreateRestaurant.prototype.renderImages = function() {
 
 var restaurantSearchHandler = function(event) {
 
-
   //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-  for(var i in restArr) {
-    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value ) {
-      if (restaurantUnList.hasChildNodes()) {
-        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
-          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
-        }
+for(var i in restArr) {
+  //Checks restArr to see if target matches and array item
+  if(restArr[i].restName === event.target.value) {
+    if (restaurantUnList.hasChildNodes()) {
+      for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+        restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
       }
-      var nameLiEl = document.createElement('li');
-      nameLiEl.textContent = 'Name: ' + restArr[i].restName;
-      restaurantUnList.appendChild(nameLiEl);
+    }
+    var restImage = document.createElement('img');
+    restImage.id = 'showcase';
+    restImage.src = restArr[i].src;
+    restaurantUnList.appendChild(restImage);
 
-      var locationLiEl = document.createElement('li');
-      locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
-      restaurantUnList.appendChild(locationLiEl);
+    var nameLiEl = document.createElement('li');
+    nameLiEl.id = 'info-list';
+    nameLiEl.textContent = 'Name: ' + restArr[i].restName;
+    restaurantUnList.appendChild(nameLiEl);
 
-      var hoursLiEl = document.createElement('li');
-      hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
-      restaurantUnList.appendChild(hoursLiEl);
+    var locationLiEl = document.createElement('li');
+    locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
+    restaurantUnList.appendChild(locationLiEl);
 
-      var typeLiEl = document.createElement('li');
-      typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
-      restaurantUnList.appendChild(typeLiEl);
+    var hoursLiEl = document.createElement('li');
+    hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
+    restaurantUnList.appendChild(hoursLiEl);
 
-      var phoneLiEl = document.createElement('li');
-      phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
-      restaurantUnList.appendChild(phoneLiEl);
+    var typeLiEl = document.createElement('li');
+    typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
+    restaurantUnList.appendChild(typeLiEl);
 
-      var websiteLiEL = document.createElement('li');
-      websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
-      restaurantUnList.appendChild(websiteLiEL);
+    if(restArr[i].restName === event.target.value && document.location.pathname == "/details.html") {
 
-      var codabilityLiEL = document.createElement('li');
-      codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
-      restaurantUnList.appendChild(codabilityLiEL);
+    var phoneLiEl = document.createElement('li');
+    phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+    restaurantUnList.appendChild(phoneLiEl);
 
-      var restImage = document.createElement('img');
-      restImage.src = restArr[i].src;
-      restaurantUnList.appendChild(restImage);
+    var websiteLiEL = document.createElement('li');
+    websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+    restaurantUnList.appendChild(websiteLiEL);
 
-      var br = document.createElement('br');
-      restaurantUnList.appendChild(br);
+    var codabilityLiEL = document.createElement('li');
+    codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+    restaurantUnList.appendChild(codabilityLiEL);
 
     }
-    localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+ 
+    var br = document.createElement('br');
+    restaurantUnList.appendChild(br);
+
   }
-  restaurantAside.appendChild(restaurantUnList);
-  document.body.appendChild(restaurantAside);
+  localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+}
+restaurantAside.appendChild(restaurantUnList);
+document.body.appendChild(restaurantAside);
 };
 
 
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
+// mapWord.addEventListener('change', restaurantSearchHandler);
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
@@ -100,7 +107,7 @@ var clearFunction = function() {
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
-new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '-Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/', 'IMG/modPizza.jpg');
+new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '-Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/', 'IMG/modPizza.jpg');
 
 //Restaurant 2//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Blue Water Taco Grill', '515 Queen Anne Ave N, Seattle, WA 98119', 'Sunday - Saturday 11am - 9pm', 'sit-down, Mexican', ['Mexican','burrito', 'tacos', 'enchiladas', 'beer', 'liquor'], '(206)352-2407', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'http://www.bluewatertacogrill.com/', 'IMG/blueWaterTacoGrill.jpg');
@@ -124,7 +131,7 @@ new CreateRestaurant('Bambinos Pizzeria', '401 Cedar St, Seattle, WA 98121', 'Su
 new CreateRestaurant('Shiro’s Sushi', '2401 2nd Ave, Seattle, WA 98121', 'Sunday - Saturday 5:30pm - 10:30pm', 'sit-down, sushi, soup, tea, wine, ice cream', ['sushi'], '(206)443-9844', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' http://shiros.com/', 'IMG/shirosSushi.jpg');
 
 //Restaurant 9//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
-new CreateRestaurant(' No Anchor', '2505 2nd Ave #105, Seattle, WA 98121', 'Sunday 11am - 11pm, Monday- Thursday 12pm - 11pm, Friday 12pm -12am, Saturday 11am - 11pm', 'bar, sit-down', ['beer', 'liquor', 'wine', 'appetizers', 'American'], '(206)448-2610', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' https://www.noanchorbar.com/ ', 'IMG/noAnchor.jpg');
+new CreateRestaurant('No Anchor', '2505 2nd Ave #105, Seattle, WA 98121', 'Sunday 11am - 11pm, Monday- Thursday 12pm - 11pm, Friday 12pm -12am, Saturday 11am - 11pm', 'bar, sit-down', ['beer', 'liquor', 'wine', 'appetizers', 'American'], '(206)448-2610', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' https://www.noanchorbar.com/ ', 'IMG/noAnchor.jpg');
 
 //Restaurant 10//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Thai On One', '2904 1st Ave, Seattle, WA 98121', 'Sunday 12pm - 9:30pm, Monday - Friday 11am - 9:30pm, Saturday 12pm - 9:30pm', 'Thai, sit-down', ['thai', 'appetizers', 'noodles', 'soup'], '(206)441-4348', ['- Wifi no', '-Price $', '- Distance .1 miles'], ' https://www.thaion1.com/', 'IMG/thaiOnOne.jpeg');
@@ -168,7 +175,6 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
-
 //Loop for map page info
 for(var i in restArr) {
   mapInfo.push(restArr[i].src);
@@ -179,69 +185,64 @@ for(var i in restArr) {
   mapInfo.push(b);
 }
 
-// //Loop for map page info
+// //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 // for(var i in restArr) {
-//   mapInfo.push(restArr[i].src);
-//   mapInfo.push(restArr[i].restName);
-//   mapInfo.push(restArr[i].restAddress);
-//   mapInfo.push(restArr[i].restHours);
-//   var b = mapInfo.splice(0, 4);
-//   mapInfo.push(b);
+//   //Checks restArr to see if target matches and array item
+//   if(restArr[i].restName === event.target.value) {
+//     if (restaurantUnList.hasChildNodes()) {
+//       for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+//         restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+//       }
+//     }
+//     var restImage = document.createElement('img');
+//     restImage.src = restArr[i].src;
+//     restaurantUnList.appendChild(restImage);
 
+//     var nameLiEl = document.createElement('li');
+//     nameLiEl.id = 'info-list';
+//     nameLiEl.textContent = 'Name: ' + restArr[i].restName;
+//     restaurantUnList.appendChild(nameLiEl);
+
+//     var locationLiEl = document.createElement('li');
+//     locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
+//     restaurantUnList.appendChild(locationLiEl);
+
+//     var hoursLiEl = document.createElement('li');
+//     hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
+//     restaurantUnList.appendChild(hoursLiEl);
+
+//     var typeLiEl = document.createElement('li');
+//     typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
+//     restaurantUnList.appendChild(typeLiEl);
+
+//     if(restArr[i].restName === event.target.value && document.location.pathname == "/details.html") {
+
+//     var phoneLiEl = document.createElement('li');
+//     phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+//     restaurantUnList.appendChild(phoneLiEl);
+
+//     var websiteLiEL = document.createElement('li');
+//     websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+//     restaurantUnList.appendChild(websiteLiEL);
+
+//     var codabilityLiEL = document.createElement('li');
+//     codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+//     restaurantUnList.appendChild(codabilityLiEL);
+
+//     }
+ 
+//     var br = document.createElement('br');
+//     restaurantUnList.appendChild(br);
+
+//   }
+//   localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
 // }
+// restaurantAside.appendChild(restaurantUnList);
+// document.body.appendChild(restaurantAside);
+// };
 
-//    var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].src;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
+var nodes = document.querySelectorAll(".info-list > *");
 
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restName;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restAddress;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restHours;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var br = document.createElement("br");
-//     tableEl.appendChild(br);
-
-// }
-// //Conditional to check if search name matches name on file
-//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restName;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restAddress;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restHours;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-// }
-
-// } //Conditional to check if search name matches name on file
-//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
-
-
+for(var i=0; i<nodes.length; i++){
+  nodes[i].style.animationDelay = (i*3)+"s";
+}

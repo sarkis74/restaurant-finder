@@ -11,6 +11,7 @@ body{
   font-family: 'Roboto Condensed', sans-serif;
 }
 
+
 header{
   height:100px;
   margin-bottom:0px;
@@ -63,6 +64,7 @@ blockquote{
   height: 350px;
   width: 100%;
   position: relative;
+ 
 }
 #headermap { background-color: black;
   width:100%;
@@ -97,11 +99,6 @@ nav li {
     color:rgb(58, 102, 158);
   }
 
-  
-  /* #restTitile{
-    float:left;
-    margin: 0px 0px 0px 0px;
-  } */
   #restaurant-filter{
     margin-top: 12px;
     float:right;
@@ -175,15 +172,6 @@ h4{
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-/* #restaurant-filter {
-
-} */
-
-
-/* #restaurant-info {
-  float: left;
-  margin-left: 100px;
-} */
 .card {
   margin: 0 80px 80px 80px;
   float: left;
@@ -248,17 +236,33 @@ height: 255px;
 #detailsH1{
 margin-top: 325px;
 }
-
- /* body{
-  width: 1000px;
-  height: 100%;
-  background-image: 
-  background-color: #cccccc;
-  background-repeat: repeat;
-  background-size: 100%;
-  background-position: center;
-  opacity: .9;
-  margin: auto;
-  font-family: ‘Roboto Condensed’, sans-serif;
- } */
  
+#showcase {
+  float: left;
+  width: 200px;
+  height: 200px;
+}
+
+#info-list > li {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 800px;
+  margin-left: 20px;
+  padding-left: 20px;
+  background: lightgray;
+  clear: right;
+}
+
+.info-list > *{
+  opacity: 0;
+  animation: animateBlur 5s forwards;
+}
+
+@keyframes animateBlur {
+  from {
+  opacity: 1;
+  text-shadow: 0 0 1em rgba(0,0,0,.5);
+  color: rgba(0,0,0,0);
+  }
+
+
