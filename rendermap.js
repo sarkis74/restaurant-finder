@@ -26,7 +26,7 @@ markers1 = [
   ['19', 'Title', 47.623287, -122.354610, 'Sugar Bakery & Coffeehouse'],
 ];
 var initMap = function(){
-  console.log('SHOULD HAVE GOOGLE OBJECT', google);
+  console.log('google');
 
   var seattle = {lat: 47.6111127, lng: -122.3373602};
 
