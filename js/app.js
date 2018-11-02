@@ -6,9 +6,10 @@ var mapInfo = [];
 var restPastSearches = []; //Array for storing past searches
 var restKeywords = [];
 var searchWord = document.getElementById('restaurant-filter');
-
+var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
+restaurantUnList.id = 'info-list';
 
 var tableEl = document.getElementById('map-table');
 var tabRowEl = document.createElement('tr');
@@ -37,17 +38,21 @@ CreateRestaurant.prototype.renderImages = function() {
 
 var restaurantSearchHandler = function(event) {
 
-
   //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
   for(var i in restArr) {
     //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value ) {
+    if(restArr[i].restName === event.target.value) {
       if (restaurantUnList.hasChildNodes()) {
         for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
           restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
         }
       }
+      var restImage = document.createElement('img');
+      restImage.src = restArr[i].src;
+      restaurantUnList.appendChild(restImage);
+
       var nameLiEl = document.createElement('li');
+      nameLiEl.id = 'info-list';
       nameLiEl.textContent = 'Name: ' + restArr[i].restName;
       restaurantUnList.appendChild(nameLiEl);
 
@@ -74,11 +79,7 @@ var restaurantSearchHandler = function(event) {
       var codabilityLiEL = document.createElement('li');
       codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
       restaurantUnList.appendChild(codabilityLiEL);
-
-      var restImage = document.createElement('img');
-      restImage.src = restArr[i].src;
-      restaurantUnList.appendChild(restImage);
-
+   
       var br = document.createElement('br');
       restaurantUnList.appendChild(br);
 
@@ -92,6 +93,7 @@ var restaurantSearchHandler = function(event) {
 
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
+// mapWord.addEventListener('change', restaurantSearchHandler);
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
@@ -160,13 +162,14 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
 
 //Loop for filling dropdown
-// for(var i in restArrNames) {
-//   var option = restArrNames[i];
-//   var optionEl = document.createElement('option');
-//   optionEl.textContent = option;
-//   optionEl.value = option;
-//   searchWord.appendChild(optionEl);
-// }
+
+for(var i in restArrNames) {
+  var option = restArrNames[i];
+  var optionEl = document.createElement('option');
+  optionEl.textContent = option;
+  optionEl.value = option;
+  searchWord.appendChild(optionEl);
+}
 
 //Loop for map page info
 for(var i in restArr) {
@@ -178,69 +181,61 @@ for(var i in restArr) {
   mapInfo.push(b);
 }
 
-// //Loop for map page info
+// //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 // for(var i in restArr) {
-//   mapInfo.push(restArr[i].src);
-//   mapInfo.push(restArr[i].restName);
-//   mapInfo.push(restArr[i].restAddress);
-//   mapInfo.push(restArr[i].restHours);
-//   var b = mapInfo.splice(0, 4);
-//   mapInfo.push(b);
+//   //Checks restArr to see if target matches and array item
+//   if(restArr[i].restName === event.target.value) {
+//     if (restaurantUnList.hasChildNodes()) {
+//       for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+//         restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+//       }
+//     }
+//     var restImage = document.createElement('img');
+//     restImage.src = restArr[i].src;
+//     restaurantUnList.appendChild(restImage);
 
+//     var nameLiEl = document.createElement('li');
+//     nameLiEl.id = 'info-list';
+//     nameLiEl.textContent = 'Name: ' + restArr[i].restName;
+//     restaurantUnList.appendChild(nameLiEl);
+
+//     var locationLiEl = document.createElement('li');
+//     locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
+//     restaurantUnList.appendChild(locationLiEl);
+
+//     var hoursLiEl = document.createElement('li');
+//     hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
+//     restaurantUnList.appendChild(hoursLiEl);
+
+//     var typeLiEl = document.createElement('li');
+//     typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
+//     restaurantUnList.appendChild(typeLiEl);
+
+//     if(restArr[i].restName === event.target.value && document.location.pathname == "/details.html") {
+
+//     var phoneLiEl = document.createElement('li');
+//     phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+//     restaurantUnList.appendChild(phoneLiEl);
+
+//     var websiteLiEL = document.createElement('li');
+//     websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+//     restaurantUnList.appendChild(websiteLiEL);
+
+//     var codabilityLiEL = document.createElement('li');
+//     codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+//     restaurantUnList.appendChild(codabilityLiEL);
+
+//     }
+ 
+//     var br = document.createElement('br');
+//     restaurantUnList.appendChild(br);
+
+//   }
+//   localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
 // }
+// restaurantAside.appendChild(restaurantUnList);
+// document.body.appendChild(restaurantAside);
+// };
 
-//    var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].src;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restName;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restAddress;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var tabDataEl = document.createElement('td');
-//     tabDataEl.textContent = restArr[i].restHours;
-//     tabRowEl.appendChild(tabDataEl);
-//     //Appending child 'table-row' to parent 'table'
-//     tableEl.appendChild(tabRowEl);
-
-//     var br = document.createElement("br");
-//     tableEl.appendChild(br);
-
-// }
-// //Conditional to check if search name matches name on file
-//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restName;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restAddress;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-
-//   var tabDataEl = document.createElement('td');
-//   tabDataEl.textContent = restArr[i].restHours;
-//   tabRowEl.appendChild(tabDataEl);
-//   //Appending child 'table-row' to parent 'table'
-//   tableEl.appendChild(tabRowEl);
-// }
-
-// } //Conditional to check if search name matches name on file
-//     if(restArr[i].restName === event.target.value && document.location.href === "http://127.0.0.1:5500/details.html") {
 
 
