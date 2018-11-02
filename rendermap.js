@@ -59,8 +59,8 @@ var initMap = function(){
       animation: google.maps.Animation.DROP,
       position: pos,
       customInfo: title,
-      // icon: 'https://fonts.googleapis.com/icon?family=Material+Icons',
-      icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+      icon: 'IMG/small-logo.png',
+      // icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
       gestureHandling: 'cooperative',
       // category: category,
       map: map
@@ -95,7 +95,7 @@ var filterMarkers = function (selectedStore) {
     // If is same category or category not picked
     // var markerTitle = marker.title.toString().toLowerCase().split(' ').join('');
     // var selectedTitle = selectedStore.toString().toLowerCase().split(' ').join('');
-    console.log('MARKERT TIEL');
+    // console.log('MARKERT TIEL');
     console.log(marker.title, selectedStore);
     // console.log(marker.selectedStore, selectedStore);
     // console.log(marker.selectedStore, selectedStore);
