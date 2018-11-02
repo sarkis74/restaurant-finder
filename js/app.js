@@ -176,8 +176,8 @@ for(var i in restArr) {
   mapInfo.push(restArr[i].restAddress);
   mapInfo.push(restArr[i].restHours);
   var b = mapInfo.splice(0, 4);
-  mapInfo.push(b); 
-};
+  mapInfo.push(b);
+}
 
 // //Loop for map page info
 // for(var i in restArr) {
