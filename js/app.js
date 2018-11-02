@@ -39,55 +39,59 @@ CreateRestaurant.prototype.renderImages = function() {
 var restaurantSearchHandler = function(event) {
 
   //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-  for(var i in restArr) {
-    //Checks restArr to see if target matches and array item
-    if(restArr[i].restName === event.target.value) {
-      if (restaurantUnList.hasChildNodes()) {
-        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
-          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
-        }
+for(var i in restArr) {
+  //Checks restArr to see if target matches and array item
+  if(restArr[i].restName === event.target.value) {
+    if (restaurantUnList.hasChildNodes()) {
+      for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+        restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
       }
-      var restImage = document.createElement('img');
-      restImage.src = restArr[i].src;
-      restaurantUnList.appendChild(restImage);
+    }
+    var restImage = document.createElement('img');
+    restImage.src = restArr[i].src;
+    restaurantUnList.appendChild(restImage);
 
-      var nameLiEl = document.createElement('li');
-      nameLiEl.id = 'info-list';
-      nameLiEl.textContent = 'Name: ' + restArr[i].restName;
-      restaurantUnList.appendChild(nameLiEl);
+    var nameLiEl = document.createElement('li');
+    nameLiEl.id = 'info-list';
+    nameLiEl.textContent = 'Name: ' + restArr[i].restName;
+    restaurantUnList.appendChild(nameLiEl);
 
-      var locationLiEl = document.createElement('li');
-      locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
-      restaurantUnList.appendChild(locationLiEl);
+    var locationLiEl = document.createElement('li');
+    locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
+    restaurantUnList.appendChild(locationLiEl);
 
-      var hoursLiEl = document.createElement('li');
-      hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
-      restaurantUnList.appendChild(hoursLiEl);
+    var hoursLiEl = document.createElement('li');
+    hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
+    restaurantUnList.appendChild(hoursLiEl);
 
-      var typeLiEl = document.createElement('li');
-      typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
-      restaurantUnList.appendChild(typeLiEl);
+    var typeLiEl = document.createElement('li');
+    typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
+    restaurantUnList.appendChild(typeLiEl);
 
-      var phoneLiEl = document.createElement('li');
-      phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
-      restaurantUnList.appendChild(phoneLiEl);
+    if(restArr[i].restName === event.target.value && document.location.pathname == "/details.html") {
 
-      var websiteLiEL = document.createElement('li');
-      websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
-      restaurantUnList.appendChild(websiteLiEL);
+    var phoneLiEl = document.createElement('li');
+    phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+    restaurantUnList.appendChild(phoneLiEl);
 
-      var codabilityLiEL = document.createElement('li');
-      codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
-      restaurantUnList.appendChild(codabilityLiEL);
-   
-      var br = document.createElement('br');
-      restaurantUnList.appendChild(br);
+    var websiteLiEL = document.createElement('li');
+    websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+    restaurantUnList.appendChild(websiteLiEL);
+
+    var codabilityLiEL = document.createElement('li');
+    codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+    restaurantUnList.appendChild(codabilityLiEL);
 
     }
-    localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+ 
+    var br = document.createElement('br');
+    restaurantUnList.appendChild(br);
+
   }
-  restaurantAside.appendChild(restaurantUnList);
-  document.body.appendChild(restaurantAside);
+  localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
+}
+restaurantAside.appendChild(restaurantUnList);
+document.body.appendChild(restaurantAside);
 };
 
 
