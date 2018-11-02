@@ -148,6 +148,10 @@ h1 {
   font-size: 40px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+#detailsH1 {
+  padding-top: 50px;
+}
 #aboutThisSite{ 
   margin-top: 370px;
 }
@@ -235,6 +239,8 @@ height: 255px;
 }
 #detailsH1{
 margin-top: 325px;
+color: white;
+background-color: grey;
 }
  
 #showcase {
@@ -244,15 +250,15 @@ margin-top: 325px;
 }
 
 #info-list > li {
+
   border: 1px solid #ccc;
-  border-radius: 5px;
   width: 800px;
   margin-left: 20px;
-  padding-left: 20px;
+  padding: 20px;
   background: lightgray;
   clear: right;
 }
-
+/* 
 .info-list > *{
   opacity: 0;
   animation: animateBlur 5s forwards;
@@ -265,4 +271,10 @@ margin-top: 325px;
   color: rgba(0,0,0,0);
   }
 
+<<<<<<< HEAD
+}
+
+ */
+=======
+>>>>>>> 966fd196de7025c0acc28676fde109865b1634ee
 

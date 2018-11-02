@@ -9,7 +9,7 @@ var searchWord = document.getElementById('restaurant-filter');
 var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
-restaurantUnList.class = 'info-list';
+restaurantUnList.id = 'info-list';
 
 var tableEl = document.getElementById('map-table');
 var tabRowEl = document.createElement('tr');
