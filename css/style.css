@@ -118,6 +118,10 @@ h1 {
   font-size: 40px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
+
+#detailsH1 {
+  padding-top: 50px;
+}
 #aboutThisSite{ 
   margin-top: 370px;
 }
@@ -214,15 +218,15 @@ margin-top: 325px;
 }
 
 #info-list > li {
+
   border: 1px solid #ccc;
-  border-radius: 5px;
   width: 800px;
   margin-left: 20px;
-  padding-left: 20px;
+  padding: 20px;
   background: lightgray;
   clear: right;
 }
-
+/* 
 .info-list > *{
   opacity: 0;
   animation: animateBlur 5s forwards;
@@ -237,5 +241,5 @@ margin-top: 325px;
 
 }
 
-
+ */
 
