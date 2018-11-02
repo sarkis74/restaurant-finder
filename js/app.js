@@ -102,7 +102,7 @@ var clearFunction = function() {
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
-new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '-Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/', 'IMG/modPizza.jpg');
+new CreateRestaurant('MOD Pizza', '305 W Harrison St #221, Seattle, WA 98109 (Seattle Center)', 'Sunday - Thursday 10:30am - 8pm, Friday-Saturday 10:30am -9pm', 'Fast, Italian', ['pizza', 'salad', 'italian', 'breadsticks', 'beer', 'milkshake'], '(206)428-6315', ['- Wifi no', '-Price $$', '-Distance .5 miles'], 'https://modpizza.com/locations/seattle-center/', 'IMG/modPizza.jpg');
 
 //Restaurant 2//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Blue Water Taco Grill', '515 Queen Anne Ave N, Seattle, WA 98119', 'Sunday - Saturday 11am - 9pm', 'sit-down, Mexican', ['Mexican','burrito', 'tacos', 'enchiladas', 'beer', 'liquor'], '(206)352-2407', ['- Wifi no', '-Price $$', '- Distance .5 miles'], 'http://www.bluewatertacogrill.com/', 'IMG/blueWaterTacoGrill.jpg');
@@ -126,7 +126,7 @@ new CreateRestaurant('Bambinos Pizzeria', '401 Cedar St, Seattle, WA 98121', 'Su
 new CreateRestaurant('Shiro’s Sushi', '2401 2nd Ave, Seattle, WA 98121', 'Sunday - Saturday 5:30pm - 10:30pm', 'sit-down, sushi, soup, tea, wine, ice cream', ['sushi'], '(206)443-9844', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' http://shiros.com/', 'IMG/shirosSushi.jpg');
 
 //Restaurant 9//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
-new CreateRestaurant(' No Anchor', '2505 2nd Ave #105, Seattle, WA 98121', 'Sunday 11am - 11pm, Monday- Thursday 12pm - 11pm, Friday 12pm -12am, Saturday 11am - 11pm', 'bar, sit-down', ['beer', 'liquor', 'wine', 'appetizers', 'American'], '(206)448-2610', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' https://www.noanchorbar.com/ ', 'IMG/noAnchor.jpg');
+new CreateRestaurant('No Anchor', '2505 2nd Ave #105, Seattle, WA 98121', 'Sunday 11am - 11pm, Monday- Thursday 12pm - 11pm, Friday 12pm -12am, Saturday 11am - 11pm', 'bar, sit-down', ['beer', 'liquor', 'wine', 'appetizers', 'American'], '(206)448-2610', ['- Wifi no', '-Price $$', '- Distance .3 miles'], ' https://www.noanchorbar.com/ ', 'IMG/noAnchor.jpg');
 
 //Restaurant 10//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
 new CreateRestaurant('Thai On One', '2904 1st Ave, Seattle, WA 98121', 'Sunday 12pm - 9:30pm, Monday - Friday 11am - 9:30pm, Saturday 12pm - 9:30pm', 'Thai, sit-down', ['thai', 'appetizers', 'noodles', 'soup'], '(206)441-4348', ['- Wifi no', '-Price $', '- Distance .1 miles'], ' https://www.thaion1.com/', 'IMG/thaiOnOne.jpeg');
@@ -162,6 +162,7 @@ new CreateRestaurant('Tilikum Place Cafe', '407 Cedar St, Seattle, WA 98121', 'S
 new CreateRestaurant('Sugar Bakery & Coffeehouse', '110 Republican St, Seattle, WA 98109', 'Sunday 7am - 10pm, Monday-Friday 6:30am - 10pm, Saturday 7am - 10pm', 'cafe, sit-down, American', ['sandwich', 'breakfast', 'dessert', 'salad', 'pastries', 'tea', 'coffee'], '(206)695-2518', ['- Wifi yes', '-Price $', '- Distance .4 miles'], ' sugarbakerycafe.com', 'IMG/sugarBakery.jpg');
 
 //Loop for filling dropdown
+
 for(var i in restArrNames) {
   var option = restArrNames[i];
   var optionEl = document.createElement('option');
@@ -177,8 +178,8 @@ for(var i in restArr) {
   mapInfo.push(restArr[i].restAddress);
   mapInfo.push(restArr[i].restHours);
   var b = mapInfo.splice(0, 4);
-  mapInfo.push(b); 
-};
+  mapInfo.push(b);
+}
 
 // //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
 // for(var i in restArr) {
