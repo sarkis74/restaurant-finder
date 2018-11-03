@@ -141,7 +141,7 @@ h2 {
   margin-top: 50px;
   margin-bottom: 10px;
   font-weight: lighter;
-  /* text-align: center; */
+
 }
 h4{
   color:rgb(58, 102, 158);
@@ -165,13 +165,6 @@ h4{
 .card:hover {
   box-shadow: 16 8px 16px 0 rgba(0,0,0,0.2);
 }
-
-/* table { width: 400px; }
-td
-{
-    float: left;
-    margin-left: 5px;
-} */
 
 .container {
   padding: 2px 16px;
@@ -233,20 +226,42 @@ background-color: grey;
   height: 1px;
   margin-left: 200px;
   padding: 20px;
-  background: lightgray;
+  /* background: lightgray; */
   clear: right;
 }
 
 #info-list { transition: all .2s ease-in-out; }
-#info-list:hover { transform: scale(1.5); }
+#info-list:hover { transform: scale(1.2); }
+
+#button-container {
+  display: block;
+  height: 100px;
+}
+
+#store-button {
+  background-color: lightgrey;
+  border: none;
+  color: black;
+  margin-top: 0px;
+  margin-left: 0px;
+  display: inline;
+  width: 130px;
+  height: 40px;
+  
+}
 
 button {
-  background-color: white;
-  color: black;
-  margin-top: 25px;
-  margin-left: 25px;
-  width: 100px;
-  height: 50px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding: 2px;
+}
+
+button:hover {background-color: #9D0029; color: white
+}
+
+button:active {
+  background-color: orange;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
