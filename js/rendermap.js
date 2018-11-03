@@ -90,7 +90,7 @@ var filterMarkers = function (selectedStore) {
   for (var i = 0; i < markers1.length; i++) {
     var marker = rmarkers1[i];
     console.log(marker.title, selectedStore);
-    
+
     if (marker.title === selectedStore || selectedStore.length === 0) {
       console.log('HITTING STORE');
       marker.setVisible(true);

@@ -1,4 +1,4 @@
-body{
+body {
   width: 1000px;
   height: 100%;
   background-color: rgba(240, 239, 239, 0.973);
@@ -11,10 +11,14 @@ body{
   font-family: 'Muli', sans-serif;
 }
 
-header{
+header {
   height:100px;
   margin-bottom:0px;
   height: 70px;
+}
+
+b {
+  font-weight: bold;
 }
 
 #para {
@@ -25,11 +29,13 @@ header{
   font-family: 'Domine', serif;  
   background-color: white;
 }
-blockquote::first-letter{
+
+blockquote::first-letter {
 font-size:30px;
 vertical-align: middle;
 }
-blockquote{
+
+blockquote {
   margin-top:20px;
   color:rgb(58, 102, 158);
   float: left;
@@ -38,99 +44,98 @@ blockquote{
   border-bottom: 1px solid lightgrey;
   display: block;
 }
-#headerPhoto{
+
+#headerPhoto {
   margin-top: 10px;
   height: 350px;
   width: 100%;
   position: relative;
 }
+
 #headermap { 
   width:100%;
   height: 50px;
   margin-bottom:20px;
 }
+
 nav li {
-    float: right;
-    list-style-type: "\1F44D";
+  float: right;
+  list-style-type: "\1F44D";
 }
     
-  nav li a {
-    display: block;
-    height: 10px;
-    padding: 12px 18px 8px 18px;
-    vertical-align: middle;
-    color: black;
-    font-size: 20px;
-    text-decoration: none;
-    font-family: 'Domine', serif;
-    font-family: 'Bitter', serif;
-    font-family: 'Muli', sans-serif;
-  }
-
-  #mapLi :hover {
-    color:rgb(58, 102, 158);
-  }
-
-  #detailsLi :hover {
-    color:rgb(58, 102, 158);
-
-  }
-
-  .about :hover {
-    color:rgb(58, 102, 158);
-  }
-
-  .mapid :hover {
-    color:rgb(58, 102, 158);
-  }
-
-  .details :hover {
-    color:rgb(58, 102, 158);
-
-  }
-
-  #aboutLi :hover {
-    color:rgb(58, 102, 158);
-  }
-
-
-  #restaurant-filter{
-    
-  float:right;
- -webkit-appearance: menulist;
- -moz-appearance: menulist;
- -webkit-user-select: none;
- -moz-user-select: none;
- -webkit-padding-end: 20px;
- -moz-padding-end: 20px;
- -webkit-padding-start: 2px;
- -moz-padding-start: 2px;
- background-position: center right;
- background-repeat: no-repeat;
- border: 1px solid rgb(58, 102, 158);
- background-color: white;
- color: darkslategray;
- font-size: 19px;
- width: 225px;
- overflow: hidden;
-  padding-top: 12px;
- text-overflow: ellipsis;
- white-space: nowrap;
- font-family: 'Domine', serif;
- font-family: 'Bitter', serif;
- font-family: 'Muli', sans-serif;
+nav li a {
+  display: block;
+  height: 10px;
+  padding: 12px 18px 8px 18px;
+  color: black;
+  font-size: 20px;
+  text-decoration: none;
+  font-family: 'Domine', serif;
+  font-family: 'Bitter', serif;
+  font-family: 'Muli', sans-serif;
 }
-select{
+
+#mapLi :hover {
+  color:rgb(58, 102, 158);
+}
+
+#detailsLi :hover {
+  color:rgb(58, 102, 158);
+}
+
+.about :hover {
+  color:rgb(58, 102, 158);
+}
+
+.mapid :hover {
+  color:rgb(58, 102, 158);
+}
+
+.details :hover {
+  color:rgb(58, 102, 158);
+}
+
+#aboutLi :hover {
+  color:rgb(58, 102, 158);
+}
+
+#restaurant-filter {
+float:right;
+-webkit-appearance: menulist;
+-moz-appearance: menulist;
+-webkit-user-select: none;
+-moz-user-select: none;
+-webkit-padding-end: 20px;
+-moz-padding-end: 20px;
+-webkit-padding-start: 2px;
+-moz-padding-start: 2px;
+background-position: center right;
+background-repeat: no-repeat;
+border: 1px solid rgb(58, 102, 158);
+background-color: white;
+color: darkslategray;
+font-size: 19px;
+width: 225px;
+overflow: hidden;
+padding-top: 12px;
+text-overflow: ellipsis;
+white-space: nowrap;
+font-family: 'Domine', serif;
+font-family: 'Bitter', serif;
+font-family: 'Muli', sans-serif;
+}
+
+select {
   margin-top:12px;
 }
      
-  #map {
-    height: 450px;  
-    width: 96%; 
-    padding: 20px;
-   }
+#map {
+  height: 450px;  
+  width: 96%; 
+  padding: 20px;
+}
    
-#h1index::first-letter{
+#h1index::first-letter {
   color: rgb(22, 107, 177);
   margin-left: 0;
   font-family: 'Domine', serif;
@@ -138,7 +143,8 @@ select{
   font-size: 30px;
   font-weight: lighter;
 }
-#h1index{
+
+#h1index {
   padding-right:12px;
   padding-top:12px;
   padding-bottom: 12px;
@@ -150,19 +156,22 @@ select{
   font-weight: lighter;
 }
 
-#headerPhoto{
+#headerPhoto {
   opacity:.8;
   border: 1px solid lightgray;
 }
+
 #detailsH1 {
   padding-top: 50px;
 }
 #aboutThisSite{ 
   margin-top: 370px;
 }
+
 #paragraph {
   text-align: justify;
 }
+
 h2 {
   font-size: 40px;
   font-weight: bold;
@@ -170,9 +179,9 @@ h2 {
   margin-top: 50px;
   margin-bottom: 10px;
   font-weight: lighter;
-
 }
-h4{
+
+h4 {
   color:rgb(58, 102, 158);
   font-size: 30px;
   margin-bottom: 5px;
@@ -200,42 +209,45 @@ h4{
   height: auto;
 }
 
-#allFourCards{
+#allFourCards {
 align-content: center;
 }
 
-#jerome{
+#jerome {
 max-width: 225px;
 height: 255px;
 }
 
-#charles{
+#charles {
   max-width: 225px;
   height: 255px;
 }
 
-#ariel{
+#ariel {
   max-width: 225px;
   height: 255px;
 }
 
-#sarkis{
+#sarkis {
   max-width: 225px;
   height: 255px;
 }
-#spacer1{
+
+#spacer1 {
   width: 100%;
   opacity: .15;
   margin-bottom: 80px;
 }
-#footerPhoto{
+
+#footerPhoto {
   margin-top: 10px;
   height: 200px;
   width: 100%;
   position: relative;
   opacity: .85;
 }
-#detailsH1{
+
+#detailsH1 {
 margin-top: 325px;
 color: white;
 background-color: grey;
@@ -248,15 +260,19 @@ background-color: grey;
   margin-top:0;
 }
 
-#showcase{ transition: all .2s ease-in-out; }
-#showcase:hover { transform: scale(1.5); }
+#showcase { 
+  transition: all .2s ease-in-out; 
+}
+
+#showcase:hover {
+  transform: scale(1.5); 
+}
 
 #info-list {
   margin-top: 30px;
 }
 
 #info-list > li {
-
   border: 1px groove black;
   width: 800px;
   height: 2px;
@@ -266,8 +282,13 @@ background-color: grey;
   background-color: white;
 }
 
-#info-list > li { transition: all .2s ease-in-out; }
-#info-list > li:hover { transform: scale(1.2); }
+#info-list > li { 
+  transition: all .2s ease-in-out; 
+}
+
+#info-list > li:hover {
+  transform: scale(1.2); 
+}
 
 #button-container {
   display: block;
@@ -278,12 +299,8 @@ background-color: grey;
   background-color: lightgrey;
   border: none;
   color: black;
-  margin-top: 0px;
   margin-left: 0px;
   display: inline;
-  width: 130px;
-  height: 40px;
-  
 }
 
 button {
@@ -293,7 +310,8 @@ button {
   padding: 2px;
 }
 
-button:hover {background-color: #9D0029; color: white
+button:hover {
+  background-color: #9D0029; color: white
 }
 
 button:active {
