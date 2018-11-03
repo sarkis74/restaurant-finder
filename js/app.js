@@ -93,7 +93,7 @@ searchWord.addEventListener('change', restaurantSearchHandler);
 var clearFunction = function() {
     location.reload(); 
     localStorage.clear('pastHistory')
-    alert("Your Data Is Cleared");
+    alert("Your Data Has Been Deleted");
 };
 
 var pastHistory = function() {
