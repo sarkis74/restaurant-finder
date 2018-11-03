@@ -59,7 +59,7 @@ var initMap = function(){
       animation: google.maps.Animation.DROP,
       position: pos,
       customInfo: title,
-      icon: 'IMG/small-logo.png',
+      icon: 'IMG/ham2.png',
       // icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
       gestureHandling: 'cooperative',
       map: map

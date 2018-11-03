@@ -1,12 +1,14 @@
 body{
   width: 1000px;
   height: 100%;
-  background-color: white;
+  background-color: rgba(240, 239, 239, 0.973);
   background-size: 100%;
   background-position: center;
   opacity: .9;
   margin: auto;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: 'Domine', serif;
+  font-family: 'Bitter', serif;
+  font-family: 'Muli', sans-serif;
 }
 
 header{
@@ -16,27 +18,31 @@ header{
 }
 
 #para {
-  font-size: 25px;
-  padding: 10px;
+  color: rgb(22, 107, 177);
+  font-size: 16px;
+  padding-bottom: 15px;
+  padding-left: 15px;
   font-family: 'Domine', serif;  
+  background-color: white;
 }
-
+blockquote::first-letter{
+font-size:30px;
+vertical-align: middle;
+}
 blockquote{
-  margin-top:10px;
+  margin-top:20px;
   color:rgb(58, 102, 158);
   float: left;
   padding-bottom: 10px;
   border-top: 1px solid lightgrey;
   border-bottom: 1px solid lightgrey;
   display: block;
-  vertical-align: middle;
 }
 #headerPhoto{
   margin-top: 10px;
   height: 350px;
   width: 100%;
   position: relative;
- 
 }
 #headermap { 
   width:100%;
@@ -45,7 +51,7 @@ blockquote{
 }
 nav li {
     float: right;
-    list-style-type: none;
+    list-style-type: "\1F44D";
 }
     
   nav li a {
@@ -56,6 +62,9 @@ nav li {
     color: black;
     font-size: 20px;
     text-decoration: none;
+    font-family: 'Domine', serif;
+    font-family: 'Bitter', serif;
+    font-family: 'Muli', sans-serif;
   }
 
   #mapLi :hover {
@@ -67,9 +76,23 @@ nav li {
 
   }
 
+  .about :hover {
+    color:rgb(58, 102, 158);
+  }
+
+  .mapid :hover {
+    color:rgb(58, 102, 158);
+  }
+
+  .details :hover {
+    color:rgb(58, 102, 158);
+
+  }
+
   #aboutLi :hover {
     color:rgb(58, 102, 158);
   }
+
 
   #restaurant-filter{
     /* margin-top: 12px; */
@@ -84,15 +107,18 @@ nav li {
  -moz-padding-start: 2px;
  background-position: center right;
  background-repeat: no-repeat;
- border: 0px solid #AAA;
+ border: 1px solid rgb(58, 102, 158);
  background-color: white;
- color: black;
- font-size: 20px;
+ color: darkslategray;
+ font-size: 19px;
  width: 225px;
  overflow: hidden;
   padding-top: 12px;
  text-overflow: ellipsis;
  white-space: nowrap;
+ font-family: 'Domine', serif;
+ font-family: 'Bitter', serif;
+ font-family: 'Muli', sans-serif;
 }
 select{
   margin-top:12px;
@@ -105,7 +131,17 @@ select{
    }
    
 #h1index::first-letter{
-  padding:12px;
+  color: rgb(22, 107, 177);
+  margin-left: 0;
+  font-family: 'Domine', serif;
+  font-family: 'Bitter', serif;
+  font-size: 30px;
+  font-weight: lighter;
+}
+#h1index{
+  padding-right:12px;
+  padding-top:12px;
+  padding-bottom: 12px;
   margin-left: 0;
   color: rgb(17, 13, 7);
   font-family: 'Domine', serif;
@@ -114,17 +150,10 @@ select{
   font-weight: lighter;
 }
 
-#h1index::first-letter{
-  color: red;
-  padding:12px;
-  margin-left: 0;
-  color: rgb(17, 13, 7);
-  font-family: 'Domine', serif;
-  font-family: 'Bitter', serif;
-  font-size: 30px;
-  font-weight: lighter;
+#headerPhoto{
+  opacity:.8;
+  border: 1px solid lightgray;
 }
-
 #detailsH1 {
   padding-top: 50px;
 }
@@ -168,7 +197,7 @@ h4{
 
 .container {
   padding: 2px 16px;
-  height: 225px;
+  height: auto;
 }
 
 #allFourCards{
