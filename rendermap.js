@@ -32,7 +32,7 @@ var initMap = function(){
 
   var options = {
     center: seattle, //SEATTLE COORDINATES
-    zoom: 12,
+    zoom: 14,
     mapTypeId: 'roadmap'
   };
 
@@ -62,7 +62,6 @@ var initMap = function(){
       icon: 'IMG/small-logo.png',
       // icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
       gestureHandling: 'cooperative',
-      // category: category,
       map: map
     });
 
@@ -75,13 +74,11 @@ var initMap = function(){
     google.maps.event.addListener(marker1, 'click', (function (marker1, map) {
       console.log('MARKER INFO',content);
       return function () {
-        console.log('Rmarker 1 gets pushed');
+        // console.log('Rmarker 1 gets pushed');
         var infoWindow = new google.maps.InfoWindow({
           content: contentString
         });
         infoWindow.open(map, marker1);
-        // map.panTo(this.getPosition());
-        // map.setZoom(12);
       };
     })(marker1, content));
   }
@@ -92,14 +89,8 @@ var initMap = function(){
 var filterMarkers = function (selectedStore) {
   for (var i = 0; i < markers1.length; i++) {
     var marker = rmarkers1[i];
-    // If is same category or category not picked
-    // var markerTitle = marker.title.toString().toLowerCase().split(' ').join('');
-    // var selectedTitle = selectedStore.toString().toLowerCase().split(' ').join('');
-    // console.log('MARKERT TIEL');
     console.log(marker.title, selectedStore);
-    // console.log(marker.selectedStore, selectedStore);
-    // console.log(marker.selectedStore, selectedStore);
-    // console.log(marker);
+    
     if (marker.title === selectedStore || selectedStore.length === 0) {
       console.log('HITTING STORE');
       marker.setVisible(true);
