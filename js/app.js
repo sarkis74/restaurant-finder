@@ -92,18 +92,25 @@ searchWord.addEventListener('change', restaurantSearchHandler);
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
     localStorage.clear('pastHistory')
+    location.reload();
     alert("Your Data Was Cleared");
 };
 
 var pastHistory = function() {
   restPastSearches.push(JSON.parse(localStorage.getItem('pastHistory')));
-  for(var i in restPastSearches) {
-    if (restaurantUnList.hasChildNodes()) {
-      for (var j = restaurantUnList.childNodes.length; j >= 0; j--) {
-        restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+  for(var i = 0; i < restPastSearches.length; i++) {
+    if(restPastSearches.length > 1 || restPastSearches !== null) {
+      if (restaurantUnList.hasChildNodes()) {
+        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+        }
       }
-    }
-
+    var restImage = document.createElement('img');
+    restImage.id = 'showcase';
+    restImage.src = restPastSearches[i].src;
+    restaurantUnList.appendChild(restImage);
+    console.log(restPastSearches[i]);
+    console.log(restPastSearches[i].restName);
     var nameLiEl = document.createElement('li');
     nameLiEl.id = 'info-list';
     nameLiEl.textContent = 'Name: ' + restPastSearches[i].restName;
@@ -136,7 +143,11 @@ var pastHistory = function() {
     var br = document.createElement('br');
     restaurantUnList.appendChild(br);
 
+    } 
   }
+  restaurantAside.appendChild(restaurantUnList);
+  document.body.appendChild(restaurantAside);
+  restPastSearches = [];
 }
 
 //Twenty restaurants will inherit object properties and method
