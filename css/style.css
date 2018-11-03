@@ -95,8 +95,8 @@ nav li {
 
 
   #restaurant-filter{
-    /* margin-top: 12px; */
-    float:right;
+    
+  float:right;
  -webkit-appearance: menulist;
  -moz-appearance: menulist;
  -webkit-user-select: none;
@@ -245,22 +245,29 @@ background-color: grey;
   float: left;
   width: 200px;
   height: 200px;
-  margin-top: 50px;
+  margin-top:0;
+}
+
+#showcase{ transition: all .2s ease-in-out; }
+#showcase:hover { transform: scale(1.5); }
+
+#info-list {
+  margin-top: 30px;
 }
 
 #info-list > li {
 
-  border: 1px solid black;
-  width: 700px;
-  height: 1px;
+  border: 1px groove black;
+  width: 800px;
+  height: 2px;
   margin-left: 200px;
-  padding: 20px;
-  /* background: lightgray; */
+  padding: 30px;
   clear: right;
+  background-color: white;
 }
 
-#info-list { transition: all .2s ease-in-out; }
-#info-list:hover { transform: scale(1.2); }
+#info-list > li { transition: all .2s ease-in-out; }
+#info-list > li:hover { transform: scale(1.2); }
 
 #button-container {
   display: block;
