@@ -128,6 +128,7 @@ select{
     height: 450px;  
     width: 96%; 
     padding: 20px;
+    margin-bottom: 100px;
    }
    
 #h1index::first-letter{
