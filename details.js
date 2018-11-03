@@ -56,19 +56,17 @@ var restaurantSearchHandler = function(event) {
       typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
       restaurantUnList.appendChild(typeLiEl);
 
-      if (restArr[i].restName === event.target.value && document.location.pathname === '/details.html') {
-        var phoneLiEl = document.createElement('li');
-        phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
-        restaurantUnList.appendChild(phoneLiEl);
+      var phoneLiEl = document.createElement('li');
+      phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
+      restaurantUnList.appendChild(phoneLiEl);
 
-        var websiteLiEL = document.createElement('li');
-        websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
-        restaurantUnList.appendChild(websiteLiEL);
+      var websiteLiEL = document.createElement('li');
+      websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
+      restaurantUnList.appendChild(websiteLiEL);
 
-        var codabilityLiEL = document.createElement('li');
-        codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
-        restaurantUnList.appendChild(codabilityLiEL);
-      }
+      var codabilityLiEL = document.createElement('li');
+      codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
+      restaurantUnList.appendChild(codabilityLiEL);
 
       var br = document.createElement('br');
       restaurantUnList.appendChild(br);
