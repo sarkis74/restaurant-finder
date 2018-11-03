@@ -1,7 +1,6 @@
 'use strict';
 var restArr = []; //Array for storing new objects
 var restArrNames = [];
-var mapInfo = [];
 
 var restPastSearches = []; //Array for storing past searches
 var restKeywords = [];
@@ -10,11 +9,6 @@ var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
 restaurantUnList.id = 'info-list';
-
-var tableEl = document.getElementById('map-table');
-var tabRowEl = document.createElement('tr');
-var tabHeadEl = document.createElement('th');
-tabHeadEl.textContent = '';
 
 //Constructor function for object properties
 var CreateRestaurant = function(restName, restAddress, restHours, foodType, keywords, restPhone, restCodability, restLink, src) {
@@ -29,11 +23,6 @@ var CreateRestaurant = function(restName, restAddress, restHours, foodType, keyw
   this.src = src; //For images
   restArr.push(this); //All new objects will go into array so we can loop through info
   restArrNames.push(this.restName);
-};
-
-//Protype for restaurant images
-CreateRestaurant.prototype.renderImages = function() {
-  restImage.src = this.src;
 };
 
 var restaurantSearchHandler = function(event) {
@@ -87,23 +76,79 @@ for(var i in restArr) {
  
     var br = document.createElement('br');
     restaurantUnList.appendChild(br);
-
+    localStorage.setItem('pastHistory', JSON.stringify(restArr[i])); //goes thru array with all data and stores it in local
+  
   }
-  localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
 }
 restaurantAside.appendChild(restaurantUnList);
 document.body.appendChild(restaurantAside);
 };
 
 
+
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
-// mapWord.addEventListener('change', restaurantSearchHandler);
 
 //Function for clearing localStorage will be linked to button and have removeItem() and alert
 var clearFunction = function() {
-
+    location.reload(); 
+    localStorage.clear('pastHistory')
+    alert("Your Data Is Cleared");
 };
+
+var pastHistory = function() {
+  restPastSearches.push(JSON.parse(localStorage.getItem('pastHistory')));
+  for(var i = 0; i < restPastSearches.length; i++) {
+    if(restPastSearches.length > 1 || restPastSearches !== null) {
+      if (restaurantUnList.hasChildNodes()) {
+        for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
+          restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
+        }
+      }
+    var restImage = document.createElement('img');
+    restImage.id = 'showcase';
+    restImage.src = restPastSearches[i].src;
+    restaurantUnList.appendChild(restImage);
+    console.log(restPastSearches[i]);
+    console.log(restPastSearches[i].restName);
+    var nameLiEl = document.createElement('li');
+    nameLiEl.id = 'info-list';
+    nameLiEl.textContent = 'Name: ' + restPastSearches[i].restName;
+    restaurantUnList.appendChild(nameLiEl);
+
+    var locationLiEl = document.createElement('li');
+    locationLiEl.textContent = 'Location: ' + restPastSearches[i].restAddress;
+    restaurantUnList.appendChild(locationLiEl);
+
+    var hoursLiEl = document.createElement('li');
+    hoursLiEl.textContent = 'Hours: ' + restPastSearches[i].restHours;
+    restaurantUnList.appendChild(hoursLiEl);
+
+    var typeLiEl = document.createElement('li');
+    typeLiEl.textContent = 'Cuisine: ' + restPastSearches[i].foodType;
+    restaurantUnList.appendChild(typeLiEl);
+
+    var phoneLiEl = document.createElement('li');
+    phoneLiEl.textContent = 'Phone Number: ' + restPastSearches[i].restPhone;
+    restaurantUnList.appendChild(phoneLiEl);
+
+    var websiteLiEL = document.createElement('li');
+    websiteLiEL.textContent = 'Website: ' + restPastSearches[i].restLink;
+    restaurantUnList.appendChild(websiteLiEL);
+
+    var codabilityLiEL = document.createElement('li');
+    codabilityLiEL.textContent = 'Codability: ' + restPastSearches[i].restCodability;
+    restaurantUnList.appendChild(codabilityLiEL);
+
+    var br = document.createElement('br');
+    restaurantUnList.appendChild(br);
+
+    } 
+  }
+  restaurantAside.appendChild(restaurantUnList);
+  document.body.appendChild(restaurantAside);
+  restPastSearches = [];
+}
 
 //Twenty restaurants will inherit object properties and method
 //Restaurant 1//new CreateRestaurant(NAME, ADDRESS, HOURS, TYPE, KEYWORDS, PHONE, CODABILITY, WEBSITE)
@@ -175,74 +220,8 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
-//Loop for map page info
-for(var i in restArr) {
-  mapInfo.push(restArr[i].src);
-  mapInfo.push(restArr[i].restName);
-  mapInfo.push(restArr[i].restAddress);
-  mapInfo.push(restArr[i].restHours);
-  var b = mapInfo.splice(0, 4);
-  mapInfo.push(b);
-}
-
-// //Loop thru restArr to see if search name === restName || search food type === foodType || search location === restAddress
-// for(var i in restArr) {
-//   //Checks restArr to see if target matches and array item
-//   if(restArr[i].restName === event.target.value) {
-//     if (restaurantUnList.hasChildNodes()) {
-//       for (var j = restaurantUnList.childNodes.length - 1; j >= 0; j--) {
-//         restaurantUnList.removeChild(restaurantUnList.childNodes[j]);
-//       }
-//     }
-//     var restImage = document.createElement('img');
-//     restImage.src = restArr[i].src;
-//     restaurantUnList.appendChild(restImage);
-
-//     var nameLiEl = document.createElement('li');
-//     nameLiEl.id = 'info-list';
-//     nameLiEl.textContent = 'Name: ' + restArr[i].restName;
-//     restaurantUnList.appendChild(nameLiEl);
-
-//     var locationLiEl = document.createElement('li');
-//     locationLiEl.textContent = 'Location: ' + restArr[i].restAddress;
-//     restaurantUnList.appendChild(locationLiEl);
-
-//     var hoursLiEl = document.createElement('li');
-//     hoursLiEl.textContent = 'Hours: ' + restArr[i].restHours;
-//     restaurantUnList.appendChild(hoursLiEl);
-
-//     var typeLiEl = document.createElement('li');
-//     typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
-//     restaurantUnList.appendChild(typeLiEl);
-
-//     if(restArr[i].restName === event.target.value && document.location.pathname == "/details.html") {
-
-//     var phoneLiEl = document.createElement('li');
-//     phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
-//     restaurantUnList.appendChild(phoneLiEl);
-
-//     var websiteLiEL = document.createElement('li');
-//     websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
-//     restaurantUnList.appendChild(websiteLiEL);
-
-//     var codabilityLiEL = document.createElement('li');
-//     codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
-//     restaurantUnList.appendChild(codabilityLiEL);
-
-//     }
- 
-//     var br = document.createElement('br');
-//     restaurantUnList.appendChild(br);
-
-//   }
-//   localStorage.setItem('pastHistory', JSON.stringify(restArr)); //goes thru array with all data and stores it in local
-// }
-// restaurantAside.appendChild(restaurantUnList);
-// document.body.appendChild(restaurantAside);
-// };
-
-var nodes = document.querySelectorAll(".info-list > *");
-
-for(var i=0; i<nodes.length; i++){
-  nodes[i].style.animationDelay = (i*3)+"s";
+// When the user clicks on <div>, open the popup
+function myFunction() {
+  var popup = document.getElementById("myPopup");
+  popup.classList.toggle("show");
 }
