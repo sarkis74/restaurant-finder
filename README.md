@@ -1,5 +1,5 @@
 # Restaurant Finder
-# Version 0.1
+# Version 1.0
 
 # n201 Final Project by
 Charles Stapleton  
