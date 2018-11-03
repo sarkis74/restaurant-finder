@@ -56,7 +56,7 @@ var restaurantSearchHandler = function(event) {
       typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
       restaurantUnList.appendChild(typeLiEl);
 
-      if (restArr[i].restName === event.target.value && document.location.pathname === 'details.html' || 'restaurant-finder/details.html') {
+      if (restArr[i].restName === event.target.value && document.location.pathname === '/details.html' && 'restaurant-finder/details.html') {
         var phoneLiEl = document.createElement('li');
         phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
         restaurantUnList.appendChild(phoneLiEl);
