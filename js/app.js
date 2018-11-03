@@ -3,9 +3,7 @@ var restArr = []; //Array for storing new objects
 var restArrNames = [];
 
 var restPastSearches = []; //Array for storing past searches
-var restKeywords = [];
 var searchWord = document.getElementById('restaurant-filter');
-var mapWord = document.getElementById('map-filter');
 var restaurantAside = document.createElement('aside');
 var restaurantUnList = document.createElement('ul');
 restaurantUnList.id = 'info-list';
