@@ -60,7 +60,7 @@ blockquote {
 
 nav li {
   float: right;
-  list-style-type: "\1F44D";
+  /* list-style-type: "\1F44D"; */
 }
     
 nav li a {
@@ -130,10 +130,11 @@ select {
 }
      
 #map {
-  height: 450px;  
-  width: 96%; 
-  padding: 20px;
-}
+    height: 450px;  
+    width: 96%; 
+    padding: 20px;
+    margin-bottom: 100px;
+   }
    
 #h1index::first-letter {
   color: rgb(22, 107, 177);
