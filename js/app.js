@@ -56,20 +56,6 @@ var restaurantSearchHandler = function(event) {
       typeLiEl.textContent = 'Cuisine: ' + restArr[i].foodType;
       restaurantUnList.appendChild(typeLiEl);
 
-      // if (restArr[i].restName === event.target.value && document.location.pathname === '/details.html' || '/restaurantfinder/details.html') {
-      //   var phoneLiEl = document.createElement('li');
-      //   phoneLiEl.textContent = 'Phone Number: ' + restArr[i].restPhone;
-      //   restaurantUnList.appendChild(phoneLiEl);
-
-      //   var websiteLiEL = document.createElement('li');
-      //   websiteLiEL.textContent = 'Website: ' + restArr[i].restLink;
-      //   restaurantUnList.appendChild(websiteLiEL);
-
-      //   var codabilityLiEL = document.createElement('li');
-      //   codabilityLiEL.textContent = 'Codability: ' + restArr[i].restCodability;
-      //   restaurantUnList.appendChild(codabilityLiEL);
-      // }
-
       var br = document.createElement('br');
       restaurantUnList.appendChild(br);
       localStorage.setItem('pastHistory', JSON.stringify(restArr[i])); //goes thru array with all data and stores it in local
@@ -78,8 +64,6 @@ var restaurantSearchHandler = function(event) {
   restaurantAside.appendChild(restaurantUnList);
   document.body.appendChild(restaurantAside);
 };
-
-
 
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
@@ -123,18 +107,6 @@ var pastHistory = function() {
       var typeLiEl = document.createElement('li');
       typeLiEl.textContent = 'Cuisine: ' + restPastSearches[i].foodType;
       restaurantUnList.appendChild(typeLiEl);
-
-      // var phoneLiEl = document.createElement('li');
-      // phoneLiEl.textContent = 'Phone Number: ' + restPastSearches[i].restPhone;
-      // restaurantUnList.appendChild(phoneLiEl);
-
-      // var websiteLiEL = document.createElement('li');
-      // websiteLiEL.textContent = 'Website: ' + restPastSearches[i].restLink;
-      // restaurantUnList.appendChild(websiteLiEL);
-
-      // var codabilityLiEL = document.createElement('li');
-      // codabilityLiEL.textContent = 'Codability: ' + restPastSearches[i].restCodability;
-      // restaurantUnList.appendChild(codabilityLiEL);
 
       var br = document.createElement('br');
       restaurantUnList.appendChild(br);
@@ -216,8 +188,3 @@ for(var i in restArrNames) {
   searchWord.appendChild(optionEl);
 }
 
-// // When the user clicks on <div>, open the popup
-// function myFunction() {
-//   var popup = document.getElementById('myPopup');
-//   popup.classList.toggle('show');
-// }

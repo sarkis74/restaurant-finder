@@ -77,8 +77,6 @@ var restaurantSearchHandler = function(event) {
   document.body.appendChild(restaurantAside);
 };
 
-
-
 //Event Listener for dropdown
 searchWord.addEventListener('change', restaurantSearchHandler);
 
@@ -136,7 +134,7 @@ var pastHistory = function() {
       restaurantUnList.appendChild(br);
     }
   }
-  
+
   restaurantAside.appendChild(restaurantUnList);
   document.body.appendChild(restaurantAside);
   restPastSearches = [];
