@@ -1,5 +1,5 @@
 # Restaurant Finder
-# Version 0.1
+# Version 1.0
 
 # n201 Final Project by
 Charles Stapleton  
@@ -8,7 +8,7 @@ Sarkis Aghazarian
 Jerome Joof  
 
 # Problem Domain
-This project provides Code Fellows users with a map and list of nearby restaurants, each with a rating based on Quality, Speed and Codability (ability to code at the location).
+The problem for the Code Fellows user is that they want a place to eat and code. This project (Restaurant Finder) provides Code Fellows users with a map and list of nearby restaurants, including whether or not those restaurants provide Wifi.
 
 # Libraries/Frameworks/Packages
 Google Maps API
